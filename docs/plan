@@ -1,0 +1,29 @@
+Task Breakdown
+Planning & Design Setup
+ Create initial HTML plan [x]
+ Update plan for Next.js & Transitions [x]
+ Setup Next.js Project Structure [ ]
+ Framework & Library Setup
+ Initialize Next.js app [ ]
+ Install Framer Motion (for advanced transitions) [ ]
+ Setup global CSS variables [ ]
+ Component Development (Next.js)
+ Navbar Component (Pill-shaped, Sticky, Motion) [ ]
+ Hero Component (Split 2-column, animated) [ ]
+ Lead Form Component [ ]
+ Shared Sections (Why Us, Outcomes, etc.) [ ]
+ Page Implementation (App Router)
+ Home Page (/) [ ]
+ Service Pages (/services/ppc, /services/seo, /services/media) [ ]
+ Portfolio Page (/portfolio) [ ]
+ Case Studies Page (/case-studies) [ ]
+ Resource Page (/resources) [ ]
+ Contact Us Page (/contact) [ ]
+ Backend & Integration
+ Setup Node.js API routes [ ]
+ Form submission handling [ ]
+ Verification & Refinement
+ Verify transitions and performance [ ]
+ Test responsiveness [ ]
+
+ 

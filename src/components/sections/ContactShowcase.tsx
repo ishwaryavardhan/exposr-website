@@ -117,7 +117,12 @@ const ContactShowcase = () => {
                                     <label className="text-[10px] font-black uppercase tracking-widest text-black/40 px-2">Phone Number</label>
                                     <input
                                         type="tel"
-                                        placeholder="+91 98765 43210"
+                                        placeholder="98XXXXXXXX"
+                                        required
+                                        pattern="[6-9][0-9]{9}"
+                                        maxLength={10}
+                                        onInvalid={(e: React.InvalidEvent<HTMLInputElement>) => (e.target as HTMLInputElement).setCustomValidity('Enter a valid 10-digit mobile number starting with 6, 7, 8 or 9')}
+                                        onInput={(e: React.FormEvent<HTMLInputElement>) => (e.target as HTMLInputElement).setCustomValidity('')}
                                         className="w-full bg-black/5 border-none rounded-2xl px-6 py-4 text-black font-bold placeholder:text-black/20 focus:ring-2 focus:ring-black/5 transition-all outline-none"
                                     />
                                 </div>

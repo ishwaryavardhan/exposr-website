@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import prisma from '@/lib/prisma'; // Assuming your lib/prisma.ts is mapped to @/lib
+import prisma from '@/lib/prisma';
 
 export async function POST(request: Request) {
     try {
@@ -23,8 +23,6 @@ export async function POST(request: Request) {
             }
         });
 
-        // Optional: send an email via Resend/Nodemailer here
-
         return NextResponse.json({
             success: true,
             message: 'Thank you! We will contact you shortly.',
@@ -32,7 +30,6 @@ export async function POST(request: Request) {
         });
 
     } catch (error) {
-        console.error('Lead creation error:', error);
         return NextResponse.json({
             success: false,
             message: 'Something went wrong. Please try again.'

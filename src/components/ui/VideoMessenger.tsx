@@ -17,6 +17,7 @@ const VideoMessenger = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         website: '',
         service: '',
         budget: '',
@@ -89,6 +90,7 @@ const VideoMessenger = () => {
                 body: JSON.stringify({ 
                     name: formData.name,
                     email: formData.email,
+                    phone: formData.phone,
                     businessName: formData.website,
                     service: formData.service,
                     source: 'Video Messenger',
@@ -105,6 +107,7 @@ const VideoMessenger = () => {
                     setFormData({
                         name: '',
                         email: '',
+                        phone: '',
                         website: '',
                         service: path.includes('seo') ? 'SEO' : '',
                         budget: '',
@@ -113,7 +116,7 @@ const VideoMessenger = () => {
                 }, 3000);
             }
         } catch (error) {
-            console.error('Failed to submit form', error);
+            // silently fail — form reset handles UX
         } finally {
             setIsSubmitting(false);
         }
@@ -155,17 +158,17 @@ const VideoMessenger = () => {
                         </button>
 
                         {/* Top Video Header */}
-                        <div className="h-40 bg-black relative shrink-0">
+                        <div className="h-48 bg-black relative shrink-0 overflow-hidden">
                             <video
                                 ref={videoRef}
-                                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+                                src="/Video%20assets/rose%20and%20leaf/Rose%20and%20leaf.mp4"
                                 muted={isMuted}
                                 loop
                                 playsInline
                                 autoPlay
-                                className="w-full h-full object-cover opacity-60"
+                                className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                             
                             {/* Header Text & Category Badge */}
                             <div className="absolute bottom-4 left-6 right-6">
@@ -232,6 +235,19 @@ const VideoMessenger = () => {
                                             placeholder="Business URL" 
                                             value={formData.website}
                                             onChange={e => setFormData({...formData, website: e.target.value})}
+                                            className="w-full px-4 py-2.5 bg-black/5 border-none rounded-xl text-sm focus:ring-1 focus:ring-brand-orange outline-none transition-shadow"
+                                        />
+
+                                        <input
+                                            required
+                                            type="tel"
+                                            placeholder="Phone Number"
+                                            value={formData.phone}
+                                            onChange={e => setFormData({...formData, phone: e.target.value})}
+                                            pattern="[6-9][0-9]{9}"
+                                            maxLength={10}
+                                            onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Enter a valid 10-digit number starting with 6, 7, 8 or 9')}
+                                            onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
                                             className="w-full px-4 py-2.5 bg-black/5 border-none rounded-xl text-sm focus:ring-1 focus:ring-brand-orange outline-none transition-shadow"
                                         />
 
@@ -337,7 +353,7 @@ const VideoMessenger = () => {
                         {/* Circular Video */}
                         <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-brand-orange shadow-2xl relative">
                             <video
-                                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+                                src="/Video%20assets/rose%20and%20leaf/rose%20and%20leaf%20-%20hot%20chocolate.mp4"
                                 muted
                                 loop
                                 playsInline

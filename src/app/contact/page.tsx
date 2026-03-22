@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import BlurText from '@/components/reactbits/BlurText';
 
 export default function ContactPage() {
-    const [formData, setFormData] = useState({ name: '', email: '', service: 'Performance Marketing', message: '' });
+    const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: 'Performance Marketing', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
@@ -26,7 +26,7 @@ export default function ContactPage() {
             
             if (res.ok && data.success) {
                 setSuccess(true);
-                setFormData({ name: '', email: '', service: 'Performance Marketing', message: '' });
+                setFormData({ name: '', email: '', phone: '', service: 'Performance Marketing', message: '' });
             } else {
                 setError(data.message || 'Something went wrong');
             }
@@ -117,6 +117,21 @@ export default function ContactPage() {
                                     <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Email Address</label>
                                     <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="name@company.com" />
                                 </div>
+                            </div>
+                            <div className="space-y-3">
+                                <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
+                                <input
+                                    required
+                                    type="tel"
+                                    value={formData.phone}
+                                    onChange={e => setFormData({...formData, phone: e.target.value})}
+                                    pattern="[6-9][0-9]{9}"
+                                    maxLength={10}
+                                    onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Enter a valid 10-digit Indian mobile number starting with 6, 7, 8 or 9')}
+                                    onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                                    className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10"
+                                    placeholder="98XXXXXXXX"
+                                />
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Service Required</label>

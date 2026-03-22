@@ -38,19 +38,19 @@ const shorts = [
         id: 4,
         tag: "Product Demo",
         title: "Unboxing film that builds desire",
-        client: "AuraWear",
+        client: "Rose & Leaf",
         views: "1.7M views",
         accent: "#FBBF24",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+        videoSrc: "/Video%20assets/rose%20and%20leaf/Rose%20and%20leaf.mp4",
     },
     {
         id: 5,
         tag: "Testimonial",
         title: "Real stories. Real reach.",
-        client: "HealthFirst",
+        client: "Rose & Leaf",
         views: "640K views",
         accent: "#34D399",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        videoSrc: "/Video%20assets/rose%20and%20leaf/rose%20and%20leaf%20-%20Tea.mp4",
     },
 ];
 

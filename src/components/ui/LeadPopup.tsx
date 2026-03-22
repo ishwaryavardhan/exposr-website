@@ -43,7 +43,7 @@ const LeadPopup = () => {
                 setTimeout(() => closePopup(), 2000);
             }
         } catch (error) {
-            console.error('Failed to submit popup form', error);
+            // silently fail
         } finally {
             setIsSubmitting(false);
         }
@@ -104,6 +104,10 @@ const LeadPopup = () => {
                                                 required
                                                 value={formData.phone}
                                                 onChange={e => setFormData({...formData, phone: e.target.value})}
+                                                pattern="[6-9][0-9]{9}"
+                                                maxLength={10}
+                                                onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Enter a valid 10-digit mobile number starting with 6, 7, 8 or 9')}
+                                                onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
                                                 className="w-full bg-neutral-50 border border-black/5 px-6 py-4 rounded-2xl text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/20 text-sm"
                                             />
                                         </div>

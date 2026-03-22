@@ -28,6 +28,7 @@ const footerLinks = {
         { name: 'Resources', href: '/resources' },
         { name: 'Careers', href: '/careers' },
         { name: 'Contact', href: '/contact' },
+        { name: 'Portal', href: '/portal/login' },
     ]
 };
 

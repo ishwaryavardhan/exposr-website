@@ -7,6 +7,8 @@ import { X, Send } from 'lucide-react';
 const LeadPopup = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -24,10 +26,27 @@ const LeadPopup = () => {
         localStorage.setItem('hasSeenLeadPopup', 'true');
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitted(true);
-        setTimeout(() => closePopup(), 2000);
+        setIsSubmitting(true);
+        try {
+            const res = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    ...formData,
+                    source: 'Lead Popup'
+                })
+            });
+            if (res.ok) {
+                setIsSubmitted(true);
+                setTimeout(() => closePopup(), 2000);
+            }
+        } catch (error) {
+            console.error('Failed to submit popup form', error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -63,6 +82,8 @@ const LeadPopup = () => {
                                                 type="text"
                                                 placeholder="YOUR NAME"
                                                 required
+                                                value={formData.name}
+                                                onChange={e => setFormData({...formData, name: e.target.value})}
                                                 className="w-full bg-neutral-50 border border-black/5 px-6 py-4 rounded-2xl text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/20 text-sm"
                                             />
                                         </div>
@@ -71,6 +92,8 @@ const LeadPopup = () => {
                                                 type="email"
                                                 placeholder="WORK EMAIL"
                                                 required
+                                                value={formData.email}
+                                                onChange={e => setFormData({...formData, email: e.target.value})}
                                                 className="w-full bg-neutral-50 border border-black/5 px-6 py-4 rounded-2xl text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/20 text-sm"
                                             />
                                         </div>
@@ -79,14 +102,17 @@ const LeadPopup = () => {
                                                 type="tel"
                                                 placeholder="PHONE NUMBER"
                                                 required
+                                                value={formData.phone}
+                                                onChange={e => setFormData({...formData, phone: e.target.value})}
                                                 className="w-full bg-neutral-50 border border-black/5 px-6 py-4 rounded-2xl text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/20 text-sm"
                                             />
                                         </div>
                                         <button
                                             type="submit"
-                                            className="w-full py-5 bg-brand-orange text-black font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-brand-orange/10 flex items-center justify-center gap-2"
+                                            disabled={isSubmitting}
+                                            className="w-full py-5 bg-brand-orange text-black font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-brand-orange/10 flex items-center justify-center gap-2 disabled:opacity-50"
                                         >
-                                            Book My Session <Send size={14} />
+                                            {isSubmitting ? 'Sending...' : 'Book My Session'} {!isSubmitting && <Send size={14} />}
                                         </button>
                                     </form>
                                 </>

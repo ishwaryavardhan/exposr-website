@@ -76,23 +76,47 @@ const VideoMessenger = () => {
         }
     }, [isExpanded]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate submission
-        setIsSubmitted(true);
-        setTimeout(() => {
-            setIsSubmitted(false);
-            setIsExpanded(false);
-            const path = pathname.toLowerCase();
-            setFormData({
-                name: '',
-                email: '',
-                website: '',
-                service: path.includes('seo') ? 'SEO' : '',
-                budget: '',
-                message: ''
+        setIsSubmitting(true);
+        
+        try {
+            const res = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    name: formData.name,
+                    email: formData.email,
+                    businessName: formData.website,
+                    service: formData.service,
+                    source: 'Video Messenger',
+                    message: `Budget: ${formData.budget} | Message: ${formData.message}`
+                })
             });
-        }, 3000);
+            
+            if (res.ok) {
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    setIsExpanded(false);
+                    const path = pathname.toLowerCase();
+                    setFormData({
+                        name: '',
+                        email: '',
+                        website: '',
+                        service: path.includes('seo') ? 'SEO' : '',
+                        budget: '',
+                        message: ''
+                    });
+                }, 3000);
+            }
+        } catch (error) {
+            console.error('Failed to submit form', error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (!isVisible) return null;
@@ -276,10 +300,11 @@ const VideoMessenger = () => {
 
                                         <button 
                                             type="submit"
-                                            className="w-full bg-black text-white py-4 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-brand-orange hover:text-black transition-all duration-300 flex items-center justify-center gap-2 group"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-black text-white py-4 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-brand-orange hover:text-black transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50"
                                         >
-                                            Book my campaign Strategy
-                                            <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                            {isSubmitting ? 'Sending...' : 'Book my campaign Strategy'}
+                                            {!isSubmitting && <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                                         </button>
                                     </motion.form>
                                 )}

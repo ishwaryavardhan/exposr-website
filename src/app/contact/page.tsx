@@ -1,10 +1,42 @@
 "use client";
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import BlurText from '@/components/reactbits/BlurText';
 
 export default function ContactPage() {
+    const [formData, setFormData] = useState({ name: '', email: '', service: 'Performance Marketing', message: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setError('');
+        
+        try {
+            const res = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...formData, source: 'Contact Page' })
+            });
+            const data = await res.json();
+            
+            if (res.ok && data.success) {
+                setSuccess(true);
+                setFormData({ name: '', email: '', service: 'Performance Marketing', message: '' });
+            } else {
+                setError(data.message || 'Something went wrong');
+            }
+        } catch (err) {
+            setError('Failed to send message. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="pt-44 pb-32 px-6 bg-white">
             <div className="container mx-auto">
@@ -64,20 +96,31 @@ export default function ContactPage() {
                         className="p-12 md:p-16 rounded-[4rem] bg-neutral-50 border border-black/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]"
                     >
                         <h3 className="text-4xl font-black text-black mb-10 tracking-tight uppercase">Brief Us</h3>
-                        <form className="space-y-8">
+                        {success ? (
+                            <div className="bg-green-50 border border-green-200 text-green-700 p-8 rounded-3xl flex flex-col items-center justify-center text-center space-y-4">
+                                <CheckCircle size={48} className="text-green-500" />
+                                <h4 className="text-2xl font-black uppercase tracking-tight">Message Received</h4>
+                                <p className="font-medium">Thank you! Our growth team will reach out to you within 24 hours.</p>
+                                <button onClick={() => setSuccess(false)} className="mt-4 text-xs font-black uppercase tracking-widest text-green-600 hover:text-green-800 transition-colors">
+                                    Send another message
+                                </button>
+                            </div>
+                        ) : (
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                            {error && <div className="text-red-500 text-sm font-semibold p-4 bg-red-50 rounded-xl">{error}</div>}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="space-y-3">
                                     <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
-                                    <input className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="Your Name" />
+                                    <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="Your Name" />
                                 </div>
                                 <div className="space-y-3">
                                     <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Email Address</label>
-                                    <input className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="name@company.com" />
+                                    <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="name@company.com" />
                                 </div>
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Service Required</label>
-                                <select className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all appearance-none cursor-pointer">
+                                <select value={formData.service} onChange={e => setFormData({...formData, service: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all appearance-none cursor-pointer">
                                     <option>Performance Marketing</option>
                                     <option>SEO & Content</option>
                                     <option>Production House</option>
@@ -86,12 +129,13 @@ export default function ContactPage() {
                             </div>
                             <div className="space-y-3">
                                 <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Your Message</label>
-                                <textarea rows={4} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10 resize-none" placeholder="Tell us about your goals..."></textarea>
+                                <textarea required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} rows={4} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10 resize-none" placeholder="Tell us about your goals..."></textarea>
                             </div>
-                            <button className="w-full py-5 bg-brand-orange hover:bg-brand-orange/90 text-black font-black rounded-2xl transition-all uppercase tracking-[0.2em] text-xs mt-8 shadow-xl shadow-brand-orange/10 flex items-center justify-center gap-3">
-                                Send Message <Send size={16} />
+                            <button disabled={isSubmitting} type="submit" className="w-full py-5 bg-brand-orange hover:bg-brand-orange/90 text-black font-black rounded-2xl transition-all uppercase tracking-[0.2em] text-xs mt-8 shadow-xl shadow-brand-orange/10 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed">
+                                {isSubmitting ? 'Sending...' : 'Send Message'} {!isSubmitting && <Send size={16} />}
                             </button>
                         </form>
+                        )}
                     </motion.div>
                 </div>
             </div>

@@ -1,21 +1,38 @@
 import { NextResponse } from 'next/server';
+import prisma from '@/lib/prisma'; // Assuming your lib/prisma.ts is mapped to @/lib
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { businessName, email, phone, service } = body;
+        const { businessName, name, email, phone, service, message, source } = body;
 
-        // Here you would typically integrate with a CRM (HubSpot, Salesforce) 
-        // or send an email via Resend/Nodemailer
-        console.log('New Lead Received:', { businessName, email, phone, service });
+        // Ensure email exists as it's required
+        if (!email) {
+            return NextResponse.json({ success: false, message: 'Email is required' }, { status: 400 });
+        }
 
-        // Mock successful response
+        const lead = await prisma.lead.create({
+            data: {
+                businessName,
+                name: name || undefined,
+                email,
+                phone,
+                service,
+                message,
+                source: source || 'website'
+            }
+        });
+
+        // Optional: send an email via Resend/Nodemailer here
+
         return NextResponse.json({
             success: true,
-            message: 'Thank you! We will contact you shortly.'
+            message: 'Thank you! We will contact you shortly.',
+            leadId: lead.id
         });
 
     } catch (error) {
+        console.error('Lead creation error:', error);
         return NextResponse.json({
             success: false,
             message: 'Something went wrong. Please try again.'

@@ -13,17 +13,12 @@ const navItems = [
         name: 'Solutions',
         href: '/services',
         hasMegaMenu: true,
-        categories: ['Branding', 'Technology', 'Media Production'],
+        categories: ['Branding'],
         featured: [
             {
                 title: 'Repositioning Of Skybags from a bag to Adventure Identity',
                 category: 'Branding',
                 image: '/case-study-skybags.png'
-            },
-            {
-                title: 'Mentos made a mast Gen-Z comeback & clocked 36M+ reach',
-                category: 'Media Production',
-                image: '/case-study-mentos.png'
             }
         ]
     },
@@ -49,7 +44,7 @@ const Navbar = () => {
 
     // Pages with white heroes shouldn't use light state text (white text on white bg).
     // Currently, Home, PPC, and SEO pages all have white hero sections.
-    const isLightState = false; // Add dark-hero paths here if they are created later
+    const isLightState = isScrolled; // Dynamic based on scroll state
 
     return (
         <nav
@@ -68,9 +63,9 @@ const Navbar = () => {
 
                     {/* Logo Section */}
                     <div className="flex items-center gap-2">
-                        <div className={`w-2.5 h-2.5 rounded-full ${isLightState ? 'bg-white' : 'bg-brand-orange'}`}></div>
-                        <Link href="/" className={`text-2xl font-black tracking-tighter flex items-baseline transition-colors ${isLightState ? 'text-white' : 'text-black'}`}>
-                            eXposr<span className={`text-sm font-bold ml-0.5 transition-colors ${isLightState ? 'text-white/40' : 'text-black/40'}`}>.Media</span>
+                        <div className={`w-2.5 h-2.5 rounded-full ${isLightState ? 'bg-orange' : 'bg-orange'}`}></div>
+                        <Link href="/" className={`text-2xl font-black tracking-tighter flex items-baseline transition-colors ${isLightState ? 'text-black' : 'text-black'}`}>
+                            eXposr<span className={`text-sm font-bold ml-0.5 transition-colors ${isLightState ? 'text-black/40' : 'text-black/40'}`}>.Media</span>
                         </Link>
                     </div>
 
@@ -85,8 +80,8 @@ const Navbar = () => {
                                 <Link
                                     href={item.href}
                                     className={`flex items-center gap-1.5 text-[14px] font-bold transition-colors ${activeDropdown === item.name 
-                                        ? (isLightState ? 'text-white' : 'text-black') 
-                                        : (isLightState ? 'text-white/80 hover:text-white' : 'text-black/80 hover:text-black')
+                                        ? (isLightState ? 'text-black' : 'text-black') 
+                                        : (isLightState ? 'text-black/80 hover:text-black' : 'text-black/80 hover:text-black')
                                         }`}
                                 >
                                     {item.name}
@@ -118,7 +113,7 @@ const Navbar = () => {
 
                         {/* Mobile Toggle */}
                         <button
-                            className={`lg:hidden p-2 transition-colors ${isLightState ? 'text-white' : 'text-black'}`}
+                            className={`lg:hidden p-2 transition-colors ${isLightState ? 'text-gray-800' : 'text-black'}`}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
                             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

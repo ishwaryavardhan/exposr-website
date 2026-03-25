@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Instagram, Twitter, Linkedin, Github as Dribbble, ArrowUpRight } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, Github as Dribbble } from 'lucide-react';
 
 const footerLinks = {
     services: [
@@ -32,27 +32,34 @@ const footerLinks = {
     ]
 };
 
+// Common Styles to ensure consistency
+const headingStyle = "text-[15px] font-bold uppercase tracking-[0.2em] text-brand-orange mb-6";
+const linkStyle = "text-[15px] font-medium text-white/50 hover:text-white transition-colors duration-300";
+const textStyle = "text-[15px] font-medium text-white/50 leading-relaxed";
+
 const Footer = () => {
     return (
-        <footer className="relative bg-black text-white pt-10 pb-6 overflow-hidden">
+        <footer className="relative bg-black text-white pt-16 pb-6 overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-6 relative z-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-10">
+                
+                {/* 2 columns on mobile, 12 columns on desktop */}
+                <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12 mb-16">
 
-                    {/* Column 1: Sneakpeak/About */}
-                    <div className="lg:col-span-3">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange mb-4">Sneakpeak</h4>
-                        <p className="text-white/50 text-base leading-relaxed font-medium">
+                    {/* Column 1: Sneakpeak - Full width on mobile */}
+                    <div className="col-span-2 lg:col-span-3">
+                        <h4 className={headingStyle}>Sneakpeak</h4>
+                        <p className={`${textStyle} max-w-xs text-justify`}>
                             We are a growth-focused digital agency dedicated to scaling Indian brands through precision-engineered marketing and high-end production.
                         </p>
                     </div>
 
-                    {/* Column 2: Services */}
-                    <div className="lg:col-span-3">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange mb-4">Services</h4>
+                    {/* Column 2: Services - Half width on mobile */}
+                    <div className="col-span-1 lg:col-span-3">
+                        <h4 className={headingStyle}>Services</h4>
                         <ul className="flex flex-col gap-3">
                             {footerLinks.services.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-white/40 hover:text-white transition-colors text-sm font-bold">
+                                    <Link href={link.href} className={linkStyle}>
                                         {link.name}
                                     </Link>
                                 </li>
@@ -60,13 +67,13 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Column 3: Solutions */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange mb-4">Solutions</h4>
+                    {/* Column 3: Solutions - Half width on mobile */}
+                    <div className="col-span-1 lg:col-span-2">
+                        <h4 className={headingStyle}>Solutions</h4>
                         <ul className="flex flex-col gap-3">
                             {footerLinks.solutions.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-white/40 hover:text-white transition-colors text-sm font-bold">
+                                    <Link href={link.href} className={linkStyle}>
                                         {link.name}
                                     </Link>
                                 </li>
@@ -74,13 +81,13 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Column 4: Company */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange mb-4">Company</h4>
+                    {/* Column 4: Company - Half width on mobile */}
+                    <div className="col-span-1 lg:col-span-2">
+                        <h4 className={headingStyle}>Company</h4>
                         <ul className="flex flex-col gap-3">
                             {footerLinks.company.map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-white/40 hover:text-white transition-colors text-sm font-bold">
+                                    <Link href={link.href} className={linkStyle}>
                                         {link.name}
                                     </Link>
                                 </li>
@@ -88,47 +95,48 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Column 5: Newsletter/Connect */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange mb-4">Get In Touch</h4>
-                        <p className="text-white/50 mb-4 text-sm font-medium leading-relaxed">
+                    {/* Column 5: Get In Touch - Half width on mobile */}
+                    <div className="col-span-1 lg:col-span-2">
+                        <h4 className={headingStyle}>Get In Touch</h4>
+                        <p className={`${textStyle} mb-6`}>
                             Ready to scale? Leave your email — we'll reach out.
                         </p>
 
-                        <form className="relative flex flex-col gap-3">
+                        <form className="relative flex flex-col gap-2">
                             <input
                                 type="email"
                                 placeholder="Email address"
-                                className="bg-white/5 border border-white/10 rounded-full px-5 py-3 text-sm text-white outline-none focus:border-white/30 transition-all w-full"
+                                className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white outline-none focus:border-white/30 transition-all w-full"
                             />
                             <button
                                 type="submit"
-                                className="bg-brand-orange text-black px-6 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white transition-all w-full"
+                                className="bg-brand-orange text-black px-4 py-3 rounded-lg text-[15px] font-black uppercase tracking-widest hover:bg-white transition-all w-full"
                             >
                                 Submit
                             </button>
                         </form>
 
-                        <div className="mt-6 flex gap-6">
-                            <Link href="#" className="text-white/20 hover:text-white transition-colors"><Twitter size={20} /></Link>
-                            <Link href="#" className="text-white/20 hover:text-white transition-colors"><Instagram size={20} /></Link>
-                            <Link href="#" className="text-white/20 hover:text-white transition-colors"><Linkedin size={20} /></Link>
-                            <Link href="#" className="text-white/20 hover:text-white transition-colors"><Dribbble size={20} /></Link>
+                        <div className="mt-8 flex gap-5">
+                            <Link href="#" className="text-white/30 hover:text-white transition-colors"><Twitter size={18} /></Link>
+                            <Link href="#" className="text-white/30 hover:text-white transition-colors"><Instagram size={18} /></Link>
+                            <Link href="#" className="text-white/30 hover:text-white transition-colors"><Linkedin size={18} /></Link>
+                            <Link href="#" className="text-white/30 hover:text-white transition-colors"><Dribbble size={18} /></Link>
                         </div>
                     </div>
                 </div>
 
-                {/* Separator */}
+                {/* Separator line */}
                 <div className="w-full h-px bg-white/5 mb-4"></div>
 
-                {/* Bottom Section: Big Brand */}
-                <div className="flex flex-col gap-0">
-                    <div className="relative">
+                {/* Bottom Section: Big Brand Logo */}
+                <div className="flex flex-col">
+                    <div className="relative overflow-hidden">
                         <motion.h2
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="text-[15vw] font-black tracking-tighter leading-[0.8] mb-0"
+                            className="text-[18vw] font-black tracking-tighter leading-[0.8] mb-0 -ml-2"
                         >
                             eXposr<span className="text-brand-orange">.</span>
                         </motion.h2>

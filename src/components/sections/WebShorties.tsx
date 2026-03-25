@@ -90,7 +90,7 @@ export default function WebShorties() {
     }, [activeIdx]);
 
     return (
-        <section className="relative bg-[#0a0a0a] py-20 overflow-hidden">
+        <section className="relative bg-[#0a0a0a] py-8 overflow-hidden">
             {/* Ambient glow */}
             <div
                 className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-20 pointer-events-none"

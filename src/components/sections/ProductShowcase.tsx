@@ -1,42 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
 import { BentoCard } from '@/components/ui/BentoCard';
-
-const projects = [
-    {
-        id: '01',
-        title: 'Echoing Through Time',
-        type: 'Tracklist',
-        bg: 'bg-[#F3F4F6]',
-        gridClass: 'col-span-12 lg:col-span-8 h-[400px]',
-    },
-    {
-        id: '02',
-        title: 'Visual Identity',
-        type: 'Portrait',
-        bg: 'bg-[#E5E7EB]',
-        gridClass: 'col-span-12 lg:col-span-4 h-[400px]',
-    },
-    {
-        id: '03',
-        title: 'Brand Purpose',
-        type: 'Gradient',
-        bg: 'bg-gradient-to-br from-[#FF007A] to-[#FF8A00]',
-        gridClass: 'col-span-12 lg:col-span-4 h-[300px]',
-    },
-    {
-        id: '04',
-        title: 'Tech Specs',
-        type: 'Specs',
-        bg: 'bg-[#D1D5DB]',
-        gridClass: 'col-span-12 lg:col-span-8 h-[300px]',
-    }
-];
+import { ArrowUpRight } from 'lucide-react';
 
 const ProductShowcase = () => {
     const router = useRouter();
@@ -51,15 +20,28 @@ const ProductShowcase = () => {
     };
 
     return (
-        <section className="py-32 px-6 bg-[#0B0D11]">
+        <section className="py-16 md:py-24 px-4 md:px-6 bg-[#0B0D11] overflow-hidden">
             <div className="max-w-[1400px] mx-auto">
-                <div className="mb-24 px-4">
-                    <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.9] uppercase">
-                        Selected <br /><span className="text-white/30 italic">Works.</span>
-                    </h2>
-                    <p className="mt-8 text-xl text-white/50 font-medium leading-relaxed max-w-xl">
+                {/* Header Section */}
+                <div className="mb-16 md:mb-24">
+                    <motion.h2 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-[18vw] md:text-[10rem] font-black text-white tracking-tighter leading-[0.8] uppercase"
+                    >
+                        Selected <br />
+                        <span className="text-white/20 italic block md:inline md:ml-4">Works.</span>
+                    </motion.h2>
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="mt-8 text-xl md:text-2xl text-white/50 font-medium leading-tight max-w-2xl"
+                    >
                         A curated selection of our most impactful brand transformations and creative solutions.
-                    </p>
+                    </motion.p>
                 </div>
 
                 <motion.div
@@ -70,131 +52,119 @@ const ProductShowcase = () => {
                         hidden: { opacity: 0 },
                         visible: {
                             opacity: 1,
-                            transition: {
-                                staggerChildren: 0.1
-                            }
+                            transition: { staggerChildren: 0.1 }
                         }
                     }}
-                    className="grid grid-cols-12 gap-6"
+                    className="grid grid-cols-12 gap-4 md:gap-6"
                 >
-                    {/* Tile 1: Large Top-Left */}
+                    {/* Tile 1: Tracklist */}
                     <motion.div
-                        variants={{
-                            hidden: { y: 20, opacity: 0 },
-                            visible: { y: 0, opacity: 1 }
-                        }}
+                        variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                         className="col-span-12 lg:col-span-8 group cursor-pointer"
-                        onHoverStart={() => setClickedId('01')}
-                        onHoverEnd={() => setClickedId(null)}
+                        onMouseEnter={() => setClickedId('01')}
+                        onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('01')}
                     >
-                        <BentoCard className="h-[400px]">
-                            <div className="absolute inset-0 bg-[#F3F4F6]">
-                                <div className="absolute top-10 left-10 z-10">
-                                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black">Tracklist</span>
-                                    <div className="mt-4 flex flex-col gap-1">
-                                        {['Echoing', 'Through', 'Time', 'Light', 'Shadows', 'Distant', 'Horizons'].map((t, idx) => (
-                                            <div key={idx} className="flex gap-8 text-[12px] font-bold text-black/40">
-                                                <span>0{idx + 1}</span>
-                                                <span className="text-black">{t}</span>
-                                            </div>
-                                        ))}
-                                    </div>
+                        <BentoCard className="h-[450px] md:h-[500px] relative overflow-hidden bg-[#F3F4F6]">
+                            <div className="absolute top-6 left-6 md:top-10 md:left-10 z-20">
+                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black bg-white/50 backdrop-blur-sm px-2 py-1">Tracklist 2024</span>
+                                <div className="mt-6 flex flex-col gap-2">
+                                    {['Echoing', 'Through', 'Time', 'Light', 'Shadows', 'Distant'].map((t, idx) => (
+                                        <div key={idx} className="flex gap-4 md:gap-8 text-[14px] md:text-[16px] font-bold text-black/40">
+                                            <span>0{idx + 1}</span>
+                                            <span className="text-black uppercase">{t}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                                <Image
-                                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=1000"
-                                    alt="Product 01"
-                                    fill
-                                    className="object-cover object-right opacity-80 group-hover:scale-110 transition-transform duration-700"
-                                />
+                            </div>
+                            <Image
+                                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=1000"
+                                alt="Product 01"
+                                fill
+                                className="object-cover object-right md:object-center opacity-90 group-hover:scale-105 transition-transform duration-1000"
+                            />
+                            <div className="absolute bottom-6 right-6 z-20 md:hidden">
+                                <div className="bg-black text-white p-3 rounded-full">
+                                    <ArrowUpRight size={20} />
+                                </div>
                             </div>
                         </BentoCard>
                     </motion.div>
 
-                    {/* Tile 2: Top-Right */}
+                    {/* Tile 2: Portrait */}
                     <motion.div
-                        variants={{
-                            hidden: { y: 20, opacity: 0 },
-                            visible: { y: 0, opacity: 1 }
-                        }}
+                        variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                         className="col-span-12 lg:col-span-4 group cursor-pointer"
-                        onHoverStart={() => setClickedId('02')}
-                        onHoverEnd={() => setClickedId(null)}
+                        onMouseEnter={() => setClickedId('02')}
+                        onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('02')}
                     >
-                        <BentoCard className="h-[400px]">
-                            <div className="absolute inset-0 bg-[#E5E7EB]">
-                                <Image
-                                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
-                                    alt="Product 02"
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                            </div>
+                        <BentoCard className="h-[450px] md:h-[500px] bg-[#E5E7EB]">
+                            <Image
+                                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
+                                alt="Product 02"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                            />
                         </BentoCard>
                     </motion.div>
 
-                    {/* Tile 3: Bottom-Left (Gradient) */}
+                    {/* Tile 3: Brand Purpose (Gradient) */}
                     <motion.div
-                        variants={{
-                            hidden: { y: 20, opacity: 0 },
-                            visible: { y: 0, opacity: 1 }
-                        }}
+                        variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                         className="col-span-12 lg:col-span-4 group cursor-pointer"
-                        onHoverStart={() => setClickedId('03')}
-                        onHoverEnd={() => setClickedId(null)}
+                        onMouseEnter={() => setClickedId('03')}
+                        onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('03')}
                     >
-                        <BentoCard className="h-[350px] bg-gradient-to-br from-brand-orange to-[#CC3D00]">
-                            <div className="p-12 h-full flex flex-col justify-center">
-                                <span className="text-4xl font-black text-white mb-6">TM</span>
-                                <p className="text-xs font-bold text-white/60 leading-relaxed uppercase tracking-widest">
+                        <BentoCard className="h-[350px] md:h-[400px] bg-gradient-to-br from-orange-600 to-red-700">
+                            <div className="p-8 md:p-12 h-full flex flex-col justify-between">
+                                <span className="text-5xl md:text-6xl font-black text-white italic tracking-tighter">TM.</span>
+                                <p className="text-sm md:text-base font-bold text-white/80 leading-tight uppercase tracking-widest">
                                     To the creators who envisioned tomorrow, and to those who will shape it with boldness and curiosity.
                                 </p>
                             </div>
                         </BentoCard>
                     </motion.div>
 
-                    {/* Tile 4: Bottom-Right (Specs) */}
+                    {/* Tile 4: Specs (Responsive layout fix) */}
                     <motion.div
-                        variants={{
-                            hidden: { y: 20, opacity: 0 },
-                            visible: { y: 0, opacity: 1 }
-                        }}
+                        variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                         className="col-span-12 lg:col-span-8 group cursor-pointer"
-                        onHoverStart={() => setClickedId('04')}
-                        onHoverEnd={() => setClickedId(null)}
+                        onMouseEnter={() => setClickedId('04')}
+                        onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('04')}
                     >
-                        <BentoCard className="h-[350px] bg-[#BEC2C7]">
-                            <div className="absolute inset-0 flex items-center justify-between p-12">
-                                <div className="flex flex-col gap-8 text-[10px] font-black uppercase tracking-widest text-black/40">
-                                    <div>M * G — 2</div>
-                                    <div className="text-black">HTTPS://</div>
+                        <BentoCard className="h-auto min-h-[400px] md:h-[400px] bg-[#BEC2C7] p-8 md:p-12">
+                            <div className="relative h-full w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0">
+                                
+                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 z-10">
+                                    <div><span className="text-black block mb-1">Model</span> M * G — 2</div>
+                                    <div><span className="text-black block mb-1">Protocol</span> HTTPS://CORE</div>
                                 </div>
 
-                                <div className="flex flex-col gap-8 text-[10px] font-black uppercase tracking-widest text-black/40 text-center">
+                                <div className="hidden md:flex flex-col gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 text-center z-10">
                                     <div>(C) 2026</div>
                                     <div className="text-black">EXPOSR.SYSTEMS</div>
                                 </div>
 
-                                <div className="flex flex-col gap-8 text-[10px] font-black uppercase tracking-widest text-black/40 text-right">
-                                    <div>NEW FACES HOSTED BY N-VISION</div>
+                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 md:text-right z-10">
+                                    <div>NEW FACES / N-VISION</div>
                                     <div className="text-black">DVL 09:30:21XZ</div>
                                 </div>
 
-                                <div className="absolute bottom-0 right-10 w-64 h-64">
+                                {/* Floating Image - Scaled down on mobile to not cover text */}
+                                <div className="absolute -bottom-4 -right-4 w-48 h-48 md:w-80 md:h-80 pointer-events-none">
                                     <Image
                                         src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000"
                                         alt="Product 04"
                                         fill
-                                        className="object-contain group-hover:scale-110 transition-transform duration-700"
+                                        className="object-contain group-hover:scale-110 transition-transform duration-1000"
                                     />
                                 </div>
                             </div>
                         </BentoCard>
                     </motion.div>
-
                 </motion.div>
             </div>
         </section>

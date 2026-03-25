@@ -6,22 +6,39 @@ import BlurText from '@/components/reactbits/BlurText';
 
 export default function Partners() {
     return (
-        <section className="py-32 px-6 bg-[#fcfcfd] overflow-hidden text-center z-10 relative border-t border-black/5">
+        <section className="py-4 px-6 bg-[#fcfcfd] overflow-hidden text-center z-10 relative border-t border-black/5">
             <div className="max-w-6xl mx-auto flex flex-col items-center">
-                <h2 className="text-5xl md:text-6xl font-black text-black tracking-tight mb-4 uppercase flex justify-center">
-                    <BlurText text="e" animateBy="letters" delay={20} className="mr-0" />
-                    <BlurText text="X" animateBy="letters" delay={20} className="text-brand-orange" />
-                    <BlurText text="posr partners with" animateBy="letters" delay={20} className="ml-[1px]" />
-                    <BlurText text=":" animateBy="letters" delay={20} className="text-brand-orange ml-4" />
-                </h2>
-                <h3 className="text-xl md:text-2xl font-bold text-black mb-6">
+                 {/* First Line */}
+                            <h2 className="uppercase leading-[0.9] tracking-tight font-extrabold">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-x-5">
+                    
+                    {/* Line 1 / Word 1: EXPOSR */}
+                    <div className="text-[56px] md:text-[80px] flex pt-5">
+                        <BlurText text="E" animateBy="letters" delay={20} className="inline-block" />
+                        <BlurText text="X" animateBy="letters" delay={20} className="text-brand-orange inline-block" />
+                        <BlurText text="POSR" animateBy="letters" delay={20} className="inline-block" />
+                    </div>
+
+                    {/* Line 2 / Word 2: PARTNERS */}
+                    <div className="text-[56px] md:text-[80px] pt-5">
+                        <BlurText text="PARTNERS" animateBy="letters" delay={20} />
+                    </div>
+
+                    {/* Line 3 / Word 3: WITH */}
+                    <div className="text-[56px] md:text-[80px] pt-5">
+                        <BlurText text="WITH" animateBy="letters" delay={20} />
+                    </div>
+
+                </div>
+            </h2>
+                <h3 className="text-xl md:text-2xl font-bold text-black mb-6 pt-5">
                     <BlurText text="Esteemed Collaborations with Industry Leaders" delay={30} />
                 </h3>
                 <div className="text-black/60 font-medium text-lg leading-relaxed mb-20 max-w-4xl mx-auto flex justify-center text-center">
                     <BlurText 
                         text="We take pride in our partnerships with industry giants such as Google, Microsoft, Amazon, and Meta. These relationships empower us to offer our clients unparalleled access to the latest tools and valuable insights in the ever-evolving world of digital marketing and web development." 
                         delay={10} 
-                        className="justify-center text-center"
+                        className="justify-center text-center "
                     />
                 </div>
 

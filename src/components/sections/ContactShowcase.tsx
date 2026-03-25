@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const ContactShowcase = () => {
     return (
-        <section className="py-32 px-6 bg-[#fcfcfd]">
+        <section className="py-8 px-6 bg-[#fcfcfd]">
             <div className="container mx-auto max-w-[1400px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
 
@@ -44,7 +44,7 @@ const ContactShowcase = () => {
                             ))}
                         </ul>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                             <div className="p-8 rounded-[2rem] bg-white border border-black/5 shadow-sm space-y-4 group cursor-pointer hover:border-black/10 transition-colors">
                                 <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center text-black">
                                     <Mail size={24} />

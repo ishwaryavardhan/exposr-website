@@ -17,7 +17,7 @@ const PreFooterCTA = () => {
     return (
         <section
             ref={containerRef}
-            className="relative bg-brand-orange py-28 md:py-44 px-6 overflow-hidden flex flex-col items-center justify-center text-center"
+            className="relative bg-brand-orange py-8 md:py-16 px-6 overflow-hidden flex flex-col items-center justify-center text-center"
         >
             {/* Dot texture */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">

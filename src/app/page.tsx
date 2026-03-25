@@ -39,10 +39,10 @@ export default function Home() {
       <Hero />
 
       {/* About Us / Impact Section */}
-      <section className="py-32 px-6 bg-black text-white">
+      <section className="py-12 px-6 bg-black text-white">
         <div className="container mx-auto">
-          <div className="max-w-4xl mb-24">
-            <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.9] uppercase">
+          <div className="max-w-4xl mb-8">
+            <h2 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter leading-[0.9] uppercase">
               About <span className="text-brand-orange italic">Us.</span>
             </h2>
             <WordReveal
@@ -88,7 +88,7 @@ export default function Home() {
       <ContactShowcase />
 
       {/* Industries Served Section */}
-      <section className="py-32 px-6 bg-white overflow-hidden">
+      <section className="py-8 px-6 bg-white overflow-hidden">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between mb-24 gap-12">
             <h2 className="text-5xl md:text-7xl font-black text-black tracking-tighter uppercase leading-none">
@@ -121,14 +121,14 @@ export default function Home() {
       </section>
 
       {/* Clients Section */}
-      <section className="py-32 px-6 bg-black overflow-hidden border-y border-white/5">
-        <div className="container mx-auto mb-24">
+      <section className="py-4 px-6 bg-black overflow-hidden border-y border-white/5">
+        <div className="container mx-auto pb-4">
           <div className="text-center">
-            <h2 className="text-sm font-black text-white/20 tracking-[0.5em] uppercase mb-16">Trusted By Forward-Thinking Brands</h2>
+            <h2 className="text-sm font-black text-white/20 tracking-[0.5em] uppercase p-8">Trusted By Forward-Thinking Brands</h2>
           </div>
         </div>
 
-        <div className="flex flex-col gap-12 group">
+        <div className="flex flex-col gap-12 group pb-15">
           {[
             ["AFAQS!", "FOXGLOVE", "MENTOS", "STREAX", "VODAFONE", "IDEA", "AIRTEL"],
             ["TATA PLAY", "ZEE5", "SONY LIV", "DISNEY+", "HOTSTAR", "NETFLIX", "AMAZON"],
@@ -164,9 +164,9 @@ export default function Home() {
       <Partners />
 
       {/* FAQ */}
-      <section className="py-32 px-6 bg-white">
+      <section className="py-8 px-6 bg-white">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-5xl font-black text-black text-center mb-24 tracking-tight uppercase">Frequently Asked <span className="text-brand-orange">Questions</span></h2>
+          <h2 className="text-5xl font-black text-black text-center mb-8 tracking-tight uppercase">Frequently Asked <span className="text-brand-orange">Questions</span></h2>
           <div className="grid grid-cols-1 gap-6">
             {[
               { q: "How do you handle regional Indian languages?", a: "We have native experts for 8+ major Indian languages to ensure your message resonates locally." },

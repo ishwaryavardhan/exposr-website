@@ -7,10 +7,10 @@ import BlurText from '@/components/reactbits/BlurText';
 export default function Partners() {
     return (
         <section className="py-4 px-6 bg-[#fcfcfd] overflow-hidden text-center z-10 relative border-t border-black/5">
-            <div className="max-w-6xl mx-auto flex flex-col items-center">
+            <div className="max-w-6xl mx-auto flex flex-col sm:flex-col items-start sm:items-start md:items-center lg:items-center" >
                  {/* First Line */}
                             <h2 className="uppercase leading-[0.9] tracking-tight font-extrabold">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-x-5">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-start md:gap-x-5">
                     
                     {/* Line 1 / Word 1: EXPOSR */}
                     <div className="text-[56px] md:text-[80px] flex pt-5">
@@ -34,11 +34,11 @@ export default function Partners() {
                 <h3 className="text-xl md:text-2xl font-bold text-black mb-6 pt-5">
                     <BlurText text="Esteemed Collaborations with Industry Leaders" delay={30} />
                 </h3>
-                <div className="text-black/60 font-medium text-lg leading-relaxed mb-20 max-w-4xl mx-auto flex justify-center text-center">
+                <div className="text-black/60 font-medium text-lg leading-relaxed mb-20 max-w-4xl mx-auto flex justify-start text-justify">
                     <BlurText 
                         text="We take pride in our partnerships with industry giants such as Google, Microsoft, Amazon, and Meta. These relationships empower us to offer our clients unparalleled access to the latest tools and valuable insights in the ever-evolving world of digital marketing and web development." 
                         delay={10} 
-                        className="justify-center text-center "
+                        className="justify-start text-left text-justify"
                     />
                 </div>
 

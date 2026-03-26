@@ -74,7 +74,7 @@ function ServiceItem({ stage, index, activeId, setActiveId }: { stage: any, inde
     }, [isInView, stage.id, setActiveId]);
 
     return (
-        <div ref={ref} className={`min-h-[70vh] flex flex-col justify-center py-24 transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
+        <div ref={ref} className={`flex flex-col justify-center py-4 transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
             <motion.div
                 animate={isActive ? { x: 0, opacity: 1 } : { x: -20, opacity: 0.5 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -101,7 +101,7 @@ export default function PPCManagementPage() {
     return (
         <div className="flex flex-col min-h-screen bg-white overflow-visible">
             {/* Minimalist Hero - Replicated from Hero.tsx logic */}
-            <section className="bg-white min-h-[90vh] pt-60 pb-32 px-6 md:px-12 flex items-start relative overflow-hidden">
+            <section className="bg-white min-h-[90vh] pt-50  px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
                     <div className="max-w-6xl">
                         <motion.div
@@ -139,7 +139,7 @@ export default function PPCManagementPage() {
             </section>
 
             {/* About PPC / Impact Section - Replicated from Home Page */}
-            <section className="py-32 px-6 bg-black text-white">
+            <section className="py-8 px-6 bg-black text-white">
                 <div className="container mx-auto">
                     <div className="max-w-4xl mb-24">
                         <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.9] uppercase">
@@ -176,20 +176,20 @@ export default function PPCManagementPage() {
             </section>
 
             {/* Service Stages (PPC Workflow) - Replicated from ServiceStages.tsx */}
-            <section className="py-24 px-6 md:px-12 bg-white text-black font-sans relative overflow-visible">
+            <section className="py-8 px-6 md:px-12 bg-white text-black font-sans relative overflow-visible">
                 <div className="max-w-[1400px] mx-auto">
-                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-20">
+                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
                         <div className="max-w-3xl">
                             <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-6 block">
                                 OUR PERFORMANCE WORKFLOW
                             </span>
-                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.03em] leading-[1.1] mb-10 text-black">
+                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.03em] leading-[1.1] text-black">
                                 Scientific steps <br /> to scaling revenue
                             </h2>
                         </div>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative border-t border-black/5 pt-20">
+                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative border-t border-black/5">
                         <div className="hidden lg:flex lg:w-1/4 sticky top-40 h-fit self-start flex-col gap-10 py-10 z-20">
                             {ppcStages.map((stage) => (
                                 <button
@@ -216,7 +216,7 @@ export default function PPCManagementPage() {
                             ))}
                         </div>
 
-                        <div className="w-full lg:w-3/4 pb-[40vh]">
+                        <div className="w-full lg:w-3/4">
                             {ppcStages.map((stage, index) => (
                                 <div key={stage.id} id={stage.id} className="scroll-mt-[30vh]">
                                     <ServiceItem
@@ -236,9 +236,9 @@ export default function PPCManagementPage() {
             <ProductShowcase />
 
             {/* Industries Served - Reproduced Home Grid */}
-            <section className="py-32 px-6 bg-white overflow-hidden">
+            <section className="py-8 px-6 bg-white overflow-hidden">
                 <div className="container mx-auto">
-                    <div className="flex flex-col md:flex-row items-center justify-between mb-24 gap-12">
+                    <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-12">
                         <h2 className="text-5xl md:text-7xl font-black text-black tracking-tighter uppercase leading-none">
                             Our Vertical <br /><span className="text-brand-orange">Expertise.</span>
                         </h2>
@@ -301,9 +301,9 @@ export default function PPCManagementPage() {
             <Partners />
 
             {/* FAQ - PPC Specific */}
-            <section className="py-32 px-6 bg-white">
+            <section className="py-8 px-6 bg-white">
                 <div className="container mx-auto max-w-5xl">
-                    <h2 className="text-5xl font-black text-black text-center mb-24 tracking-tight uppercase">PPC <span className="text-brand-orange">Insights</span></h2>
+                    <h2 className="text-5xl font-black text-black text-center mb-4 tracking-tight uppercase">PPC <span className="text-brand-orange">Insights</span></h2>
                     <div className="grid grid-cols-1 gap-6">
                         {[
                             { q: "What is your typical management fee structure?", a: "We operate on a performance-aligned model, usually a base management fee plus a percentage of spend or revenue share depending on goals." },

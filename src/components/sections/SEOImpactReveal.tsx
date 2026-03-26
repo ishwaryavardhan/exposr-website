@@ -1,22 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { Search } from "lucide-react"; // Install lucide-react or use an SVG
 
 export default function SEOImpactReveal() {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-15%" });
+    const [searchValue, setSearchValue] = useState("");
 
     const paragraph =
         "True SEO isn't just about traffic. It's about intercepting your perfect audience at their highest point of intent, building compounding trust that pays dividends for years.";
     const words = paragraph.split(" ");
 
     return (
-        <section className="relative bg-black text-white overflow-hidden py-40">
+        <section className="relative bg-black text-white overflow-hidden py-12 md:py-20">
 
             {/* ── Background Layers ── */}
-
-            {/* 1. Deep pulsing orange glow — bottom center */}
             <motion.div
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] pointer-events-none"
                 style={{
@@ -27,7 +27,6 @@ export default function SEOImpactReveal() {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* 2. Subtle orange grid */}
             <div
                 className="absolute inset-0 opacity-[0.04] pointer-events-none"
                 style={{
@@ -36,16 +35,6 @@ export default function SEOImpactReveal() {
                     backgroundSize: "80px 80px",
                 }}
             />
-
-            {/* 3. Moving horizontal scan line */}
-            <motion.div
-                className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-30 pointer-events-none"
-                animate={{ top: ["0%", "100%"] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            />
-
-            {/* 4. Vignette top + bottom */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-70 pointer-events-none" />
 
             {/* ── Content ── */}
             <div
@@ -57,7 +46,7 @@ export default function SEOImpactReveal() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-3 mb-10"
+                    className="flex items-center gap-3 mb-8 md:mb-10"
                 >
                     <span className="w-8 h-[2px] bg-brand-orange" />
                     <span className="text-brand-orange text-xs font-black uppercase tracking-[0.3em]">
@@ -65,21 +54,20 @@ export default function SEOImpactReveal() {
                     </span>
                 </motion.div>
 
-                {/* Main headline — large, one line via fluid font */}
-                <div className="overflow-hidden mb-10">
+                {/* Main headline — Fixed for Mobile Wrapping */}
+                <div className="mb-8 md:mb-10">
                     <motion.h2
-                        initial={{ y: "110%", opacity: 0 }}
-                        animate={isInView ? { y: "0%", opacity: 1 } : {}}
+                        initial={{ y: 40, opacity: 0 }}
+                        animate={isInView ? { y: 0, opacity: 1 } : {}}
                         transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="font-black tracking-tighter uppercase leading-none whitespace-nowrap"
-                        style={{ fontSize: "clamp(3.5rem, 8.5vw, 8.5rem)" }}
+                        className="font-black tracking-tighter uppercase leading-[0.9] flex flex-wrap gap-x-4"
+                        style={{ fontSize: "clamp(2.8rem, 10vw, 8.5rem)" }}
                     >
-                        OWN THE{" "}
-                        <span className="text-brand-orange italic relative">
+                        <span>OWN THE</span>
+                        <span className="text-brand-orange italic relative inline-block">
                             SEARCH.
-                            {/* Underline glow */}
                             <motion.span
-                                className="absolute -bottom-2 left-0 h-[3px] bg-brand-orange"
+                                className="absolute -bottom-1 md:-bottom-2 left-0 h-[2px] md:h-[4px] bg-brand-orange"
                                 initial={{ width: "0%" }}
                                 animate={isInView ? { width: "100%" } : {}}
                                 transition={{ delay: 0.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -88,18 +76,40 @@ export default function SEOImpactReveal() {
                     </motion.h2>
                 </div>
 
+                {/* ── NEW: Search Bar Component ── */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 1, duration: 0.8 }}
+                    className="relative max-w-2xl mb-12 md:mb-16 group"
+                >
+                    <div className="relative flex items-center">
+                        <Search className="absolute left-4 w-5 h-5 text-brand-orange/70 group-focus-within:text-brand-orange transition-colors" />
+                        <input
+                            type="text"
+                            placeholder="Type a keyword to dominate..."
+                            className="w-full bg-white/5 border border-white/10 py-4 md:py-6 pl-12 pr-6 rounded-xl md:rounded-2xl text-lg focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange/50 transition-all backdrop-blur-sm placeholder:text-white/20"
+                            value={searchValue}
+                            onChange={(e) => setSearchValue(e.target.value)}
+                        />
+                        <button className="absolute right-3 px-4 py-2 bg-brand-orange text-black font-bold text-sm uppercase rounded-lg hover:bg-white transition-colors hidden sm:block">
+                            Analyze
+                        </button>
+                    </div>
+                </motion.div>
+
                 {/* Separator line */}
                 <motion.div
-                    className="w-full h-px bg-white/10 mb-12"
+                    className="w-full h-px bg-white/10 mb-10 md:mb-12"
                     initial={{ scaleX: 0, originX: 0 }}
                     animate={isInView ? { scaleX: 1 } : {}}
-                    transition={{ delay: 0.9, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ delay: 1.2, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 />
 
                 {/* Word-by-word paragraph */}
                 <p
-                    className="font-medium leading-relaxed flex flex-wrap gap-y-2 max-w-4xl text-white/80"
-                    style={{ fontSize: "clamp(1.1rem, 2vw, 1.75rem)" }}
+                    className="font-medium leading-relaxed flex flex-wrap gap-y-1 md:gap-y-2 max-w-4xl text-white/80"
+                    style={{ fontSize: "clamp(1rem, 2.5vw, 1.75rem)" }}
                 >
                     {words.map((word, i) => (
                         <motion.span
@@ -112,7 +122,7 @@ export default function SEOImpactReveal() {
                                     : {}
                             }
                             transition={{
-                                delay: 0.6 + i * 0.028,
+                                delay: 1.4 + i * 0.02,
                                 duration: 0.55,
                                 ease: "easeOut",
                             }}

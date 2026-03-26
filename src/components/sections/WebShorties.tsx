@@ -100,7 +100,7 @@ export default function WebShorties() {
             <div className="max-w-[1400px] mx-auto px-6">
 
                 {/* Header */}
-                <div className="flex items-end justify-between mb-12">
+                <div className="flex items-end justify-between mb-4">
                     <div>
                         <div className="flex items-center gap-3 mb-4">
                             <span className="w-8 h-[2px] bg-brand-orange" />

@@ -23,7 +23,7 @@ const reasons = [
 
 const PMWhyUs = () => {
     return (
-        <section className="py-32 px-6 bg-white overflow-hidden">
+        <section className="py-8 px-6 bg-white overflow-hidden">
             <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row gap-24 items-center">
                     <div className="lg:w-1/2">

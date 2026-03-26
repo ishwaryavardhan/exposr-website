@@ -11,7 +11,7 @@ export default function SMMImpactReveal() {
     const words = paragraph.split(" ");
 
     return (
-        <section className="relative bg-black text-white overflow-hidden py-40">
+        <section className="relative bg-black text-white overflow-hidden py-8">
 
             {/* Pulsing purple-orange glow */}
             <motion.div

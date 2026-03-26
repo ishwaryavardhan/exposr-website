@@ -28,7 +28,7 @@ const painPoints = [
 
 const PMPainPoints = () => {
     return (
-        <section className="py-32 px-6 bg-neutral-950 text-white">
+        <section className="py-8 px-6 bg-neutral-950 text-white">
             <div className="container mx-auto">
                 <div className="text-center mb-24">
                     <h2 className="text-sm font-black text-white/20 tracking-[0.5em] uppercase mb-8">Industry Reality</h2>

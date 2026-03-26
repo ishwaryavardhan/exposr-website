@@ -5,7 +5,7 @@ import PMLeadForm from '../../ui/PMLeadForm';
 
 const PMHero = () => {
     return (
-        <section className="bg-white min-h-[90vh] pt-52 pb-32 px-6 md:px-12 flex items-center relative overflow-hidden">
+        <section className="bg-white min-h-[90vh] pt-52 pb-4 px-6 md:px-12 flex items-center relative overflow-hidden">
             <div className="max-w-[1400px] mx-auto w-full relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
                     <motion.div

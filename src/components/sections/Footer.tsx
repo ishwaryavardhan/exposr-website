@@ -38,7 +38,7 @@ const Footer = () => {
         <footer className="relative bg-black text-white pt-16 pb-4 overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-6 relative z-20">
                 
-                <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12 mb-16">
+                <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12 ">
 
                     {/* Sneakpeak - Full width on mobile */}
                     <div className="col-span-2 lg:col-span-3">
@@ -110,17 +110,17 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-px bg-white/5 mb-4"></div>
+               
 
                 {/* Big Brand Logo Section */}
-                <div className="relative mt-10 lg:mt-20">
+                <div className="relative ">
                     <div className="overflow-visible lg:overflow-hidden">
                         <motion.h2
                             initial={{ opacity: 0, y: "40%" }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                            className="text-[22vw] font-black tracking-tighter leading-[0.7] mb-0 -ml-2 select-none pointer-events-none"
+                            className="text-[14vw] font-black tracking-tighter mb-0 ml-2 select-none pointer-events-none"
                         >
                             eXposr<span className="text-brand-orange">.</span>
                         </motion.h2>

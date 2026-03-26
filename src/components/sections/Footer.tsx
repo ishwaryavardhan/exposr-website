@@ -9,10 +9,10 @@ const footerLinks = {
     services: [
         { name: 'SEO Optimization', href: '/seo-optimization' },
         { name: 'PPC Management', href: '/ppc-management' },
-        { name: 'Social Media Management', href: '/social-media-management' },
+        // { name: 'Social Media Management', href: '/social-media-management' },
         { name: 'Media Production', href: '/media-production' },
         { name: 'Performance Marketing', href: '/performance-marketing' },
-        { name: 'Influencer Marketing', href: '/influencer-marketing-for-brands' },
+        // { name: 'Influencer Marketing', href: '/influencer-marketing-for-brands' },
     ],
     solutions: [
         { name: 'Branding', href: '/solutions/branding' },

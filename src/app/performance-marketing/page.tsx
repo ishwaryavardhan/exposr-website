@@ -17,7 +17,7 @@ export default function PerformanceMarketingPage() {
             <PMHero />
 
             {/* 2. About Us Layout */}
-            <section className="py-32 px-6 bg-black text-white">
+            <section className="py-8 px-6 bg-black text-white">
                 <div className="container mx-auto">
                     <div className="max-w-4xl mb-24">
                         <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.9] uppercase">

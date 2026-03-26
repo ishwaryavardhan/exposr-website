@@ -54,7 +54,7 @@ function StageItem({ stage, index, activeId, setActiveId }: { stage: any, index:
     }, [isInView, stage.id, setActiveId]);
 
     return (
-        <div ref={ref} className={`min-h-[70vh] flex flex-col justify-center py-24 transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
+        <div ref={ref} className={` flex flex-col justify-center py-8 transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
             <motion.div
                 animate={isActive ? { x: 0, opacity: 1 } : { x: -20, opacity: 0.5 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -85,7 +85,7 @@ export default function SocialMediaManagementPage() {
         <div className="flex flex-col min-h-screen bg-white overflow-visible">
 
             {/* ── Hero ── */}
-            <section className="bg-white min-h-[90vh] pt-60 pb-32 px-6 md:px-12 flex items-start relative overflow-hidden">
+            <section className="bg-white pt-50 pb-8 px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
                     <div className="max-w-6xl">
                         <motion.div
@@ -154,7 +154,7 @@ export default function SocialMediaManagementPage() {
             <SMMImpactReveal />
 
             {/* ── 3-Pillar Stats ── */}
-            <section className="pb-32 pt-12 px-6 bg-black text-white relative z-10">
+            <section className="pb-8 pt-12 px-6 bg-black text-white relative z-10">
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
                         {[
@@ -180,7 +180,7 @@ export default function SocialMediaManagementPage() {
             </section>
 
             {/* ── Platforms We Manage ── */}
-            <section className="py-24 px-6 md:px-12 bg-white text-black">
+            <section className="py-8 px-6 md:px-12 bg-white text-black">
                 <div className="max-w-[1400px] mx-auto">
                     <div className="mb-16">
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 mb-4 block">Platforms</span>
@@ -212,9 +212,9 @@ export default function SocialMediaManagementPage() {
             </section>
 
             {/* ── Workflow Sticky Rail ── */}
-            <section className="py-24 px-6 md:px-12 bg-white text-black font-sans relative overflow-visible">
+            <section className="py-8 px-6 md:px-12 bg-white text-black font-sans relative overflow-visible">
                 <div className="max-w-[1400px] mx-auto">
-                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-20">
+                    <div className="flex flex-col md:flex-row justify-between items-start gap-8 ">
                         <div className="max-w-3xl">
                             <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-black/40 mb-6 block">The Social Blueprint</span>
                             <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.03em] leading-[1.1] mb-10 text-black">
@@ -223,7 +223,7 @@ export default function SocialMediaManagementPage() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative border-t border-black/5 pt-20">
+                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative border-t border-black/5">
                         <div className="hidden lg:flex lg:w-1/4 sticky top-40 h-fit self-start flex-col gap-10 py-10 z-20">
                             {smmStages.map((stage) => (
                                 <button
@@ -248,7 +248,7 @@ export default function SocialMediaManagementPage() {
                             ))}
                         </div>
 
-                        <div className="w-full lg:w-3/4 pb-[40vh]">
+                        <div className="w-full lg:w-3/4">
                             {smmStages.map((stage, index) => (
                                 <div key={stage.id} id={stage.id} className="scroll-mt-[30vh]">
                                     <StageItem stage={stage} index={index} activeId={activeId} setActiveId={setActiveId} />

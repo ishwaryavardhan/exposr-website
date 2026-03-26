@@ -88,7 +88,7 @@ export default function SEOServicesAccordion() {
     const headerInView = useInView(sectionRef, { once: true, margin: "-10%" });
 
     return (
-        <section ref={sectionRef} className="relative w-full bg-black text-white overflow-hidden font-sans py-32">
+        <section ref={sectionRef} className="relative w-full bg-black text-white overflow-hidden font-sans py-12">
             {/* Grid overlay */}
             <div
                 className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
@@ -102,7 +102,7 @@ export default function SEOServicesAccordion() {
             <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
 
                 {/* Section header */}
-                <div className="mb-24 max-w-3xl">
+                <div className="mb-8 max-w-3xl">
                     <motion.span
                         initial={{ opacity: 0, x: -20 }}
                         animate={headerInView ? { opacity: 1, x: 0 } : {}}

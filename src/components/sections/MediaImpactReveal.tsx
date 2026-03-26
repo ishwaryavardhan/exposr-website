@@ -12,7 +12,7 @@ export default function MediaImpactReveal() {
     const words = paragraph.split(" ");
 
     return (
-        <section className="relative bg-black text-white overflow-hidden py-40">
+        <section className="relative bg-black text-white overflow-hidden py-8">
             {/* Deep cinematic glow — warm amber */}
             <motion.div
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[650px] pointer-events-none"

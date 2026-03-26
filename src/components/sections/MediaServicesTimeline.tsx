@@ -114,7 +114,7 @@ export default function MediaServicesTimeline() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full bg-black text-white overflow-hidden font-sans py-32"
+            className="relative w-full bg-black text-white overflow-hidden font-sans py-8"
         >
             <div
                 className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"

@@ -59,13 +59,20 @@ const Navbar = () => {
             </div>
 
             <div className={`w-full transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-xl border-b border-black/5 shadow-sm' : 'bg-transparent'}`}>
-                <div className={`max-w-[1400px] mx-auto flex items-center justify-between transition-all duration-500 px-6 relative ${isScrolled ? 'py-4' : 'py-8'}`}>
+                <div className={`max-w-[1400px] mx-auto flex items-center justify-between transition-all duration-500 px-6 relative ${isScrolled ? 'py-4' : 'py-4'}`}>
 
                     {/* Logo Section */}
-                    <div className="flex items-center gap-2">
-                        <div className={`w-2.5 h-2.5 rounded-full ${isLightState ? 'bg-orange' : 'bg-orange'}`}></div>
-                        <Link href="/" className={`text-2xl font-black tracking-tighter flex items-baseline transition-colors ${isLightState ? 'text-black' : 'text-black'}`}>
-                            eXposr<span className={`text-sm font-bold ml-0.5 transition-colors ${isLightState ? 'text-black/40' : 'text-black/40'}`}>.Media</span>
+                    <div className="flex items-center">
+                        <Link href="/" className="flex items-center">
+                            <Image 
+                                src="/exposr-logo.png" 
+                                alt="eXposr Media"
+                                width={180}
+                                height={60}
+                                className="h-20 w-auto transition-all duration-300 object-contain"
+                                priority
+                                quality={100}
+                            />
                         </Link>
                     </div>
 
@@ -79,7 +86,7 @@ const Navbar = () => {
                             >
                                 <Link
                                     href={item.href}
-                                    className={`flex items-center gap-1.5 text-[14px] font-bold transition-colors ${activeDropdown === item.name 
+                                    className={`flex items-center gap-1.5 text-[16px] font-bold transition-colors ${activeDropdown === item.name 
                                         ? (isLightState ? 'text-black' : 'text-black') 
                                         : (isLightState ? 'text-black/80 hover:text-black' : 'text-black/80 hover:text-black')
                                         }`}
@@ -100,13 +107,13 @@ const Navbar = () => {
                     <div className="flex items-center gap-3 pointer-events-auto">
                         <Link
                             href="/portfolio"
-                            className="bg-white text-black border border-black/5 px-8 py-3.5 rounded-full text-[14px] font-black tracking-tight hover:bg-black/5 transition-all hidden md:block"
+                            className="bg-white text-black border border-black/5 px-8 py-3.5 rounded-full text-[16px] font-black tracking-tight hover:bg-black/5 transition-all hidden md:block"
                         >
                             Portfolio
                         </Link>
                         <Link
                             href="/contact"
-                            className="bg-black text-white px-8 py-3.5 rounded-full text-[14px] font-black tracking-tight hover:bg-black/90 transition-all flex items-center gap-2 group"
+                            className="bg-black text-white px-8 py-3.5 rounded-full text-[16px] font-black tracking-tight hover:bg-black/90 transition-all flex items-center gap-2 group"
                         >
                             Contact
                         </Link>

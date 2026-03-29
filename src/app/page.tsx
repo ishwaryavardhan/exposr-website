@@ -17,6 +17,7 @@ import {
 import { motion } from 'framer-motion';
 
 import WordReveal from '@/components/reactbits/WordReveal';
+import AeoFaqs from '@/components/sections/AeoFaqs';
 
 const industries = [
   { name: 'Edutech', icon: <GraduationCap size={24} /> },
@@ -31,6 +32,19 @@ const industries = [
 const testimonials = [
   { name: "Rahul S.", role: "Founder, BloomTech India", quote: "eXposr didn't just bring traffic; they brought the right traffic. Our sales increased 3x in six months." },
   { name: "Ananya M.", role: "Marketing Head, Veda Care", quote: "Their understanding of the Indian consumer mindset is unparalleled. A game-changer for our scale." },
+];
+
+const homeFaqs = [
+  { question: 'What is an Agentic AI digital marketing agency?', answer: 'An Agentic AI digital marketing agency like eXposr uses autonomous AI systems and intelligent agents to execute, optimize, and scale marketing campaigns with minimal manual intervention. This means faster decision-making, real-time bid optimization, predictive audience targeting, and compounding performance gains that traditional agencies cannot replicate at scale.' },
+  { question: 'How does eXposr use AI to accelerate SaaS pipeline growth?', answer: 'eXposr deploys AI-powered demand generation workflows that map each stage of your SaaS buyer journey—from awareness to MQL to SQL. We combine automated intent-signal targeting, AI-assisted ad copy generation, and conversion rate optimization loops to consistently reduce your cost-per-qualified-lead while maximizing pipeline velocity.' },
+  { question: 'What digital marketing services does eXposr offer?', answer: 'eXposr offers a full suite of growth services including SEO Optimization (technical, on-page, and off-page), PPC Management across Google and LinkedIn, Performance Marketing, Social Media Management, Website Development, and high-end Media Production. All services are powered by AI agents and data-led strategy frameworks.' },
+  { question: 'How long does it take to see ROI from digital marketing?', answer: 'ROI timelines depend on the channel mix. Paid channels (PPC, Performance Marketing) typically show measurable results within 2-4 weeks of campaign launch. Organic channels like SEO require 3-6 months for significant traction but deliver compounding, lower-cost returns long-term. eXposr typically creates a blended strategy to ensure short-term pipeline coverage while building long-term organic equity.' },
+  { question: 'What industries does eXposr specialise in?', answer: 'eXposr has deep expertise in high-growth verticals including SaaS, Edutech, Fin-Tech, E-Commerce, Health & Fitness, Real Estate, and Hospitality. Our AI systems are trained to understand the nuanced buyer behaviour in each of these industries, allowing for hyper-targeted campaigns that perform significantly above industry benchmarks.' },
+  { question: 'Does eXposr work with early-stage startups or only enterprise brands?', answer: 'eXposr works with companies across the growth curve—from Series A SaaS startups building their first GTM engine to established enterprise brands looking to unlock new acquisition channels. Our modular service model means we can start with a focused engagement and scale up as your needs grow.' },
+  { question: 'What makes eXposr different from other digital marketing agencies in India?', answer: 'eXposr is India\'s first Agentic AI marketing agency, meaning we don\'t just use AI tools—we build autonomous marketing systems. Our team combines performance marketing engineers, AI prompt architects, and creative strategists under one roof, allowing us to deliver higher output, faster iteration cycles, and measurably better KPIs than conventional agencies.' },
+  { question: 'How does eXposr measure and report on campaign performance?', answer: 'We use a combination of real-time dashboards, weekly performance reports, and monthly strategic reviews. Every campaign is tracked against agreed-upon KPIs including qualified leads generated, cost per acquisition, pipeline influenced, and revenue attributed. Our clients have full visibility into spend, performance, and strategic recommendations at all times.' },
+  { question: 'Can eXposr manage both paid and organic marketing channels simultaneously?', answer: 'Yes. eXposr\'s strength lies in building integrated growth ecosystems where paid acquisition channels (Google Ads, Meta, LinkedIn) and organic channels (SEO, Content Marketing) work together to maximize total funnel coverage and reduce blended CAC. Our AI systems allocate budget and effort dynamically based on real-time performance signals.' },
+  { question: 'How do I get started with eXposr?', answer: 'Getting started is simple. Visit our contact page or book a growth strategy session directly. We begin with a comprehensive audit of your current marketing performance, identify the highest-leverage opportunities, and present a tailored roadmap aligned to your revenue goals. Most clients see a clear ROI projection within the first strategy call.' },
 ];
 
 export default function Home() {
@@ -164,28 +178,11 @@ export default function Home() {
       <Partners />
 
       {/* FAQ */}
-      <section className="py-8 px-6 bg-white">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-5xl font-black text-black text-center mb-8 tracking-tight uppercase">Frequently Asked <span className="text-brand-orange">Questions</span></h2>
-          <div className="grid grid-cols-1 gap-6">
-            {[
-              { q: "How do you handle regional Indian languages?", a: "We have native experts for 8+ major Indian languages to ensure your message resonates locally." },
-              { q: "What's the typical timeline for results?", a: "PPC often shows results in weeks, while SEO strategies are built for sustainable 3-6 month growth." },
-              { q: "Do you only work with big brands?", a: "We work with visionaries—whether you're a funded startup or an established enterprise scaling further." },
-            ].map((faq, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="p-10 rounded-3xl border border-black/5 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h3 className="text-2xl font-black text-black mb-4 tracking-tight uppercase">{faq.q}</h3>
-                <p className="text-black/50 text-lg leading-relaxed font-medium">{faq.a}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AeoFaqs
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about eXposr and our AI-powered marketing approach."
+        faqs={homeFaqs}
+      />
     </div>
   );
 }

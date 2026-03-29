@@ -76,28 +76,7 @@ export default function SEOImpactReveal() {
                     </motion.h2>
                 </div>
 
-                {/* ── NEW: Search Bar Component ── */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 1, duration: 0.8 }}
-                    className="relative max-w-2xl mb-12 md:mb-16 group"
-                >
-                    <div className="relative flex items-center">
-                        <Search className="absolute left-4 w-5 h-5 text-brand-orange/70 group-focus-within:text-brand-orange transition-colors" />
-                        <input
-                            type="text"
-                            placeholder="Type a keyword to dominate..."
-                            className="w-full bg-white/5 border border-white/10 py-4 md:py-6 pl-12 pr-6 rounded-xl md:rounded-2xl text-lg focus:outline-none focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange/50 transition-all backdrop-blur-sm placeholder:text-white/20"
-                            value={searchValue}
-                            onChange={(e) => setSearchValue(e.target.value)}
-                        />
-                        <button className="absolute right-3 px-4 py-2 bg-brand-orange text-black font-bold text-sm uppercase rounded-lg hover:bg-white transition-colors hidden sm:block">
-                            Analyze
-                        </button>
-                    </div>
-                </motion.div>
-
+                
                 {/* Separator line */}
                 <motion.div
                     className="w-full h-px bg-white/10 mb-10 md:mb-12"

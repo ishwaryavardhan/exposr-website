@@ -62,10 +62,10 @@ function StageItem({ stage, index, activeId, setActiveId }: { stage: any, index:
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-orange mb-6 block">PHASE 0{index + 1} / {stage.label}</span>
                 <h3 className="text-3xl md:text-5xl lg:text-7xl font-semibold tracking-[-0.03em] leading-[1.1] mb-8">{stage.title}</h3>
                 <p className="text-lg md:text-xl text-black/60 font-medium leading-relaxed max-w-2xl">{stage.description}</p>
-                <div className="mt-12 flex items-center gap-4 group cursor-pointer">
+                {/* <div className="mt-12 flex items-center gap-4 group cursor-pointer">
                     <span className="text-xs font-black uppercase tracking-widest group-hover:mr-2 transition-all">View Process Details</span>
                     <ArrowRight size={16} className="text-black/40 group-hover:text-brand-orange transition-colors" />
-                </div>
+                </div> */}
             </motion.div>
         </div>
     );

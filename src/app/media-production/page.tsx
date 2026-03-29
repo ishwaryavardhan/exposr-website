@@ -10,6 +10,7 @@ import Partners from '@/components/sections/Partners';
 import MediaImpactReveal from '@/components/sections/MediaImpactReveal';
 import MediaServicesTimeline from '@/components/sections/MediaServicesTimeline';
 import WebShorties from '@/components/sections/WebShorties';
+import LeadForm from '@/components/ui/LeadForm';
 
 // ── Workflow stages ─────────────────────────────────────────────────────────
 const stages = [
@@ -105,7 +106,7 @@ export default function MediaProductionPage() {
             {/* ── Hero ── */}
             <section className="bg-white min-h-[90vh] pt-60 pb-4 px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
-                    <div className="max-w-6xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-2 items-center">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -119,7 +120,7 @@ export default function MediaProductionPage() {
                             </div>
 
                             <h1
-                                className="text-6xl md:text-8xl lg:text-[145px] font-black text-black mb-8 mt-4"
+                                className="text-6xl md:text-8xl lg:text-[95px] font-black text-black mb-8 mt-4"
                                 style={{ lineHeight: '0.88', letterSpacing: '-0.07em' }}
                             >
                                 Every Frame.<br />
@@ -155,6 +156,26 @@ export default function MediaProductionPage() {
                                 </div>
                             </div>
                         </motion.div>
+
+                        <div className="relative">
+                            <LeadForm 
+                                title="Create <span class='text-brand-orange italic'>Media.</span>"
+                                subtitle="Get a Free Production Consultation"
+                                buttonText="Start Production Journey"
+                            />
+                            
+                            {/* Decorative floating elements */}
+                            <motion.div 
+                                animate={{ y: [0, -20, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -top-10 -right-10 w-32 h-32 bg-black/[0.02] rounded-full blur-3xl -z-10" 
+                            />
+                            <motion.div 
+                                animate={{ y: [0, 20, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -bottom-10 -left-10 w-40 h-40 bg-black/[0.02] rounded-full blur-3xl -z-10" 
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/[0.02] to-transparent pointer-events-none" />

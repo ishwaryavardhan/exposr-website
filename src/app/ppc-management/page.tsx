@@ -14,6 +14,7 @@ import ProductShowcase from '@/components/sections/ProductShowcase';
 import WebShorties from '@/components/sections/WebShorties';
 import ContactShowcase from '@/components/sections/ContactShowcase';
 import Partners from '@/components/sections/Partners';
+import LeadForm from '@/components/ui/LeadForm';
 
 const ppcStages = [
     {
@@ -103,7 +104,7 @@ export default function PPCManagementPage() {
             {/* Minimalist Hero - Replicated from Hero.tsx logic */}
             <section className="bg-white min-h-[90vh] pt-50  px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
-                    <div className="max-w-6xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-2 items-center">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -113,7 +114,7 @@ export default function PPCManagementPage() {
                                 <div className="w-3 h-3 rounded-full bg-brand-orange"></div>
                                 <span className="text-[11px] font-black uppercase tracking-[0.4em] text-black/50">Performance Marketing Experts</span>
                             </div>
-                            <h1 className="text-5xl md:text-8xl lg:text-[110px] font-black text-black leading-[1.05] tracking-[-0.04em] mb-12">
+                            <h1 className="text-5xl md:text-8xl lg:text-[94px] font-black text-black leading-[1.05] tracking-[-0.04em] mb-12">
                                 Dominate Search <br className="hidden lg:block" />
                                 Drive Profitable Growth.
                             </h1>
@@ -129,9 +130,29 @@ export default function PPCManagementPage() {
                                     transition={{ delay: 0.5, duration: 1 }}
                                     className="w-16 h-px bg-black/10"
                                 />
-                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-black/30">Scroll to View Impact</span>
+                                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-black/30 pb-5">Scroll to View Impact</span>
                             </div>
                         </motion.div>
+
+                        <div className="relative">
+                            <LeadForm 
+                                title="Scale <span class='text-brand-orange italic'>PPC.</span>"
+                                subtitle="Get a Free PPC Audit"
+                                buttonText="Start PPC Journey"
+                            />
+                            
+                            {/* Decorative floating elements */}
+                            <motion.div 
+                                animate={{ y: [0, -20, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -top-10 -right-10 w-32 h-32 bg-black/[0.02] rounded-full blur-3xl -z-10" 
+                            />
+                            <motion.div 
+                                animate={{ y: [0, 20, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -bottom-10 -left-10 w-40 h-40 bg-black/[0.02] rounded-full blur-3xl -z-10" 
+                            />
+                        </div>
                     </div>
                 </div>
                 {/* Subtle Texture */}

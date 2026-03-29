@@ -65,11 +65,11 @@ const Navbar = () => {
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center">
                             <Image 
-                                src="/exposr-logo.png" 
+                                src="/exposr new one.png" 
                                 alt="eXposr Media"
                                 width={180}
                                 height={60}
-                                className="h-20 w-auto transition-all duration-300 object-contain"
+                                className="h-14 w-auto transition-all duration-300 object-contain"
                                 priority
                                 quality={100}
                             />

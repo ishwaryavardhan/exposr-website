@@ -15,6 +15,7 @@ import ContactShowcase from '@/components/sections/ContactShowcase';
 import Partners from '@/components/sections/Partners';
 import SEOServicesAccordion from '@/components/sections/SEOServicesAccordion';
 import SEOImpactReveal from '@/components/sections/SEOImpactReveal';
+import LeadForm from '@/components/ui/LeadForm';
 
 const seoStages = [
     {
@@ -94,19 +95,19 @@ export default function SEOOptimizationPage() {
             {/* Minimalist Hero */}
             <section className="bg-white min-h-[90vh] pt-54 pb-8 px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
-                    <div className="max-w-6xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-2 items-center">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-3 h-3 rounded-full bg-brand-orange"></div>
+                            <div className="flex items-center gap-1 mb-6">
+                                <div className="w-2 h-2 rounded-full bg-brand-orange"></div>
                                 <span className="text-[11px] font-black uppercase tracking-[0.4em] text-black/50">Search Engine Optimization</span>
                             </div>
                             
                             <h1 
-                                className="text-6xl md:text-8xl lg:text-[145px] font-black text-black mb-8 mt-4"
+                                className="text-6xl md:text-8xl lg:text-[95px] font-black text-black mb-8 mt-4"
                                 style={{ 
                                     lineHeight: '0.88', 
                                     letterSpacing: '-0.07em',
@@ -141,6 +142,26 @@ export default function SEOOptimizationPage() {
                                 </div>
                             </div>
                         </motion.div>
+
+                        <div className="relative">
+                            <LeadForm 
+                                title="Scale <span class='text-brand-orange italic'>SEO.</span>"
+                                subtitle="Get a Free SEO Audit"
+                                buttonText="Start SEO Journey"
+                            />
+                            
+                            {/* Decorative floating elements */}
+                            <motion.div 
+                                animate={{ y: [0, -20, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -top-10 -right-10 w-32 h-32 bg-black/[0.02] rounded-full blur-3xl -z-10" 
+                            />
+                            <motion.div 
+                                animate={{ y: [0, 20, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -bottom-10 -left-10 w-40 h-40 bg-black/[0.02] rounded-full blur-3xl -z-10" 
+                            />
+                        </div>
                     </div>
                 </div>
                 {/* Subtle Texture */}

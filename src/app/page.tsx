@@ -179,9 +179,9 @@ export default function Home() {
 
       {/* FAQ */}
       <AeoFaqs
-        title="Frequently Asked Questions"
-        subtitle="Everything you need to know about eXposr and our AI-powered marketing approach."
-        faqs={homeFaqs}
+               title="Frequently Asked Questions"
+               subtitle="Everything you need to know about eXposr and our AI-powered marketing approach."
+               faqs={homeFaqs}
       />
     </div>
   );

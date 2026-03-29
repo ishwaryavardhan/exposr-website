@@ -103,17 +103,9 @@ export default function SEOServicesAccordion() {
 
                 {/* Section header */}
                 <div className="mb-8 max-w-3xl">
-                    <motion.span
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={headerInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-brand-orange text-xs font-black tracking-[0.3em] uppercase mb-8 flex items-center gap-3"
-                    >
-                        <span className="w-6 h-[2px] bg-brand-orange inline-block" />
-                        <DecryptedText text="Scaling Startups, Empowering Brands, Accelerating Corporates" speed={35} maxIterations={15} />
-                    </motion.span>
+                   
 
-                    <h2 className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tighter text-white uppercase mt-6">
+                    <h2 className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tighter text-white uppercase mt-2">
                         <ScrollRevealText
                             text="Strategic solutions designed to help businesses grow. compete. and lead in the digital landscape."
                             className="flex-wrap"

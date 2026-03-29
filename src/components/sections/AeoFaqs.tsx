@@ -47,7 +47,7 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10 items-start">
                 
                 {/* Left Column: Headers */}
-                <div className="lg:col-span-4 flex flex-col items-start sticky top-32 self-start h-fit">
+                <div className="lg:col-span-4 flex flex-col items-start top-32 self-start h-fit">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}

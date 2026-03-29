@@ -16,7 +16,7 @@ import Partners from '@/components/sections/Partners';
 import SEOServicesAccordion from '@/components/sections/SEOServicesAccordion';
 import SEOImpactReveal from '@/components/sections/SEOImpactReveal';
 import AeoFaqs from '@/components/sections/AeoFaqs';
-import LeadForm from '@/components/ui/LeadForm';
+import VideoMessengerInline from '@/components/ui/VideoMessengerInline';
 
 const seoStages = [
     {
@@ -109,7 +109,7 @@ export default function SEOOptimizationPage() {
             {/* Minimalist Hero */}
             <section className="bg-white min-h-[90vh] pt-54 pb-8 px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-16 items-center">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -126,9 +126,7 @@ export default function SEOOptimizationPage() {
                                     transformOrigin: 'left center',
                                 }}
                             >
-                                Stop Chasing Traffic.<br />
-                                Build an Organic<br />
-                                Growth Engine.
+                                Stop Chasing Traffic. Build an Organic Growth Engine.
                             </h1>
 
                             <p className="text-xl md:text-2xl text-black/60 max-w-4xl leading-relaxed font-medium mb-12 mt-8">
@@ -156,7 +154,7 @@ export default function SEOOptimizationPage() {
                         </motion.div>
 
                         <div className="relative">
-                            <LeadForm 
+                            <VideoMessengerInline 
                                 title="Scale <span class='text-brand-orange italic'>SEO.</span>"
                                 subtitle="Get a Free SEO Audit"
                                 buttonText="Start SEO Journey"

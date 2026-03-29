@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import PMLeadForm from '../../ui/PMLeadForm';
+import VideoMessengerInline from '../../ui/VideoMessengerInline';
 
 const PMHero = () => {
     return (
@@ -35,7 +35,11 @@ const PMHero = () => {
                     </motion.div>
 
                     <div className="relative">
-                        <PMLeadForm />
+                        <VideoMessengerInline 
+                            title="Scale <span class='text-brand-orange italic'>Performance.</span>"
+                            subtitle="Get a Free Growth Audit"
+                            buttonText="Start Growth Journey"
+                        />
                         
                         {/* Decorative floating elements */}
                         <motion.div 

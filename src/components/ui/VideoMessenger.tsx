@@ -320,7 +320,7 @@ const VideoMessenger = () => {
                                             className="w-full bg-black text-white py-4 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-brand-orange hover:text-black transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50"
                                         >
                                             {isSubmitting ? 'Sending...' : 'Book my campaign Strategy'}
-                                            {!isSubmitting && <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+                                            {!isSubmitting && <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform p-5"   />}
                                         </button>
                                     </motion.form>
                                 )}

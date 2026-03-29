@@ -10,7 +10,7 @@ import Partners from '@/components/sections/Partners';
 import MediaImpactReveal from '@/components/sections/MediaImpactReveal';
 import MediaServicesTimeline from '@/components/sections/MediaServicesTimeline';
 import WebShorties from '@/components/sections/WebShorties';
-import LeadForm from '@/components/ui/LeadForm';
+import VideoMessengerInline from '@/components/ui/VideoMessengerInline';
 import AeoFaqs from '@/components/sections/AeoFaqs';
 
 // ── Workflow stages ─────────────────────────────────────────────────────────
@@ -98,9 +98,7 @@ function StageItem({ stage, index, activeId, setActiveId }: { stage: any, index:
                     {stage.description}
                 </p>
                 <div className="mt-12 flex items-center gap-4 group cursor-pointer">
-                    <span className="text-xs font-black uppercase tracking-widest group-hover:mr-2 transition-all">
-                        Explore This Phase
-                    </span>
+
                     <ArrowRight size={16} className="text-black/40 group-hover:text-brand-orange transition-colors" />
                 </div>
             </motion.div>
@@ -118,7 +116,7 @@ export default function MediaProductionPage() {
         <div className="flex flex-col min-h-screen bg-white overflow-visible">
 
             {/* ── Hero ── */}
-            <section className="bg-white min-h-[90vh] pt-60 pb-4 px-6 md:px-12 flex items-start relative overflow-hidden">
+            <section className="bg-white  pt-35 pb-4 px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-2 items-center">
                         <motion.div
@@ -145,9 +143,7 @@ export default function MediaProductionPage() {
                             <p className="text-xl md:text-2xl text-black/60 max-w-4xl leading-relaxed font-medium mb-4 mt-8">
                                 We are a full-stack media production studio — from concept and script through to post-production, delivery, and platform-ready distribution. We produce brand films, commercials, photography, motion graphics, podcasts, and short-form video that doesn't just look premium — it performs.
                             </p>
-                            <p className="text-lg md:text-xl text-black/40 max-w-3xl leading-relaxed font-medium mb-12">
-                                Our clients are brands, agencies, and organisations that understand the compounding value of consistently excellent creative output. If you're ready to invest in media production that builds brand equity with every piece, let's start the conversation.
-                            </p>
+                            
 
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
                                 <a
@@ -172,10 +168,10 @@ export default function MediaProductionPage() {
                         </motion.div>
 
                         <div className="relative">
-                            <LeadForm 
-                                title="Create <span class='text-brand-orange italic'>Media.</span>"
-                                subtitle="Get a Free Production Consultation"
-                                buttonText="Start Production Journey"
+                            <VideoMessengerInline 
+                                title="Scale <span class='text-brand-orange italic'>Media.</span>"
+                                subtitle="Get a Free Production Audit"
+                                buttonText="Start Media Journey"
                             />
                             
                             {/* Decorative floating elements */}

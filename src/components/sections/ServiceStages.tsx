@@ -3,37 +3,43 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const services = [
     {
         id: 'seo',
         label: 'SEO',
         title: 'Dominate Search & Drive Organic Growth',
-        description: 'Comprehensive SEO strategies tailored for the Indian market. From technical audits to multilingual content and local SEO, we ensure your brand stays at the top of the search results.'
+        description: 'Comprehensive SEO strategies tailored for the Indian market. From technical audits to multilingual content and local SEO, we ensure your brand stays at the top of the search results.',
+        page: '/seo-optimization'
     },
     {
         id: 'web-dev',
         label: 'Website Development',
         title: 'Modern, Scalable & High-Conversion Digital Platforms',
-        description: 'We build fast, responsive, and secure websites that don’t just look good but are engineered to convert. Specializing in Next.js, headless commerce, and intuitive design.'
+        description: 'We build fast, responsive, and secure websites that don’t just look good but are engineered to convert. Specializing in Next.js, headless commerce, and intuitive design.',
+        page: '#'
     },
     {
         id: 'paid-ads',
         label: 'Paid Ads',
         title: 'Hyper-Targeted Advertising with Proven ROI',
-        description: 'Strategic ad campaigns across social and search platforms. We optimize your ad spend to reach the right audience at the right time, minimizing CAC and maximizing ROI.'
+        description: 'Strategic ad campaigns across social and search platforms. We optimize your ad spend to reach the right audience at the right time, minimizing CAC and maximizing ROI.',
+        page: '/ppc-management'
     },
     {
         id: 'performance-marketing',
         label: 'Performance Marketing',
         title: 'Data-Driven Strategies for Aggressive Scaling',
-        description: 'Advanced marketing funnels and attribution modeling. We focus on the metric that matters most: your bottom line. Scalable growth solutions for ambitious startups.'
+        description: 'Advanced marketing funnels and attribution modeling. We focus on the metric that matters most: your bottom line. Scalable growth solutions for ambitious startups.',
+        page: '/performance-marketing'
     },
     {
         id: 'media-production',
         label: 'Media Production',
-        title: 'Cinematic Storytelling for the Digital Age',
-        description: 'Global-standard media production including TVCs, digital ads, and social content. We craft visual experiences that resonate with diverse Indian and global audiences.'
+        title: 'Cinematic Storytelling for Digital Age',
+        description: 'Global-standard media production including TVCs, digital ads, and social content. We craft visual experiences that resonate with diverse Indian and global audiences.',
+        page: '/media-production'
     }
 ];
 
@@ -43,6 +49,7 @@ const ServiceItem = ({ service, index, activeId, setActiveId }: { service: any, 
         margin: "-45% 0% -45% 0%",
         once: false
     });
+    const router = useRouter();
 
     const isActive = activeId === service.id;
 
@@ -51,6 +58,12 @@ const ServiceItem = ({ service, index, activeId, setActiveId }: { service: any, 
             setActiveId(service.id);
         }
     }, [isInView, service.id, setActiveId]);
+
+    const handleExploreService = () => {
+        if (service.page && service.page !== '#') {
+            router.push(service.page);
+        }
+    };
 
     return (
         <div ref={ref} className={`flex flex-col justify-center py-4 pt-0 transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
@@ -65,7 +78,7 @@ const ServiceItem = ({ service, index, activeId, setActiveId }: { service: any, 
                 <p className="text-lg md:text-xl text-black/60 font-medium leading-relaxed max-w-2xl">
                     {service.description}
                 </p>
-                <div className="mt-4 flex items-center gap-4 group cursor-pointer inline-flex">
+                <div onClick={handleExploreService} className="mt-4 flex items-center gap-4 group cursor-pointer inline-flex">
                     <span className="text-xs font-black uppercase tracking-widest group-hover:mr-2 transition-all">Explore Service</span>
                     <ArrowRight size={16} className="text-black/40 group-hover:text-brand-orange transition-colors" />
                 </div>

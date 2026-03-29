@@ -13,7 +13,7 @@ const navItems = [
         name: 'Solutions',
         href: '/services',
         hasMegaMenu: true,
-        categories: ['Branding'],
+        categories: ['Branding', 'SEO Optimization', 'PPC Management', 'Media Production', 'Performance Marketing'],
         featured: [
             {
                 title: 'Repositioning Of Skybags from a bag to Adventure Identity',
@@ -142,15 +142,37 @@ const Navbar = () => {
                         <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 py-16 px-6">
                             {/* Categories Column */}
                             <div className="col-span-3 flex flex-col gap-8 border-r border-black/5">
-                                {navItems.find(i => i.name === 'Solutions')?.categories?.map((cat) => (
-                                    <Link
-                                        key={cat}
-                                        href={cat === 'Branding' ? '/solutions/branding' : `/services#${cat.toLowerCase().replace(' ', '-')}`}
-                                        className="text-3xl font-black tracking-tighter text-black/20 hover:text-black transition-all duration-500 hover:translate-x-2"
-                                    >
-                                        {cat}
-                                    </Link>
-                                ))}
+                                {navItems.find(i => i.name === 'Solutions')?.categories?.map((cat) => {
+                                    let href = '';
+                                    switch(cat) {
+                                        case 'Branding':
+                                            href = '/solutions/branding';
+                                            break;
+                                        case 'SEO Optimization':
+                                            href = '/seo-optimization';
+                                            break;
+                                        case 'PPC Management':
+                                            href = '/ppc-management';
+                                            break;
+                                        case 'Media Production':
+                                            href = '/media-production';
+                                            break;
+                                        case 'Performance Marketing':
+                                            href = '/performance-marketing';
+                                            break;
+                                        default:
+                                            href = `/services#${cat.toLowerCase().replace(' ', '-')}`;
+                                    }
+                                    return (
+                                        <Link
+                                            key={cat}
+                                            href={href}
+                                            className="text-3xl font-black tracking-tighter text-black/20 hover:text-black transition-all duration-500 hover:translate-x-2"
+                                        >
+                                            {cat}
+                                        </Link>
+                                    );
+                                })}
                             </div>
 
                             {/* Featured Showcase Grid */}

@@ -60,7 +60,7 @@ const PMLeadForm = () => {
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                     
-                    <p className="text-[9px] text-center text-black/20 font-bold uppercase tracking-widest">No Spam. Only ROI.</p>
+                    <p className="text-[9px] text-center text-black/20 font-bold uppercase tracking-widest mt-15">No Spam. Only ROI.</p>
                 </form>
             </div>
         </motion.div>

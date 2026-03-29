@@ -15,6 +15,7 @@ import WebShorties from '@/components/sections/WebShorties';
 import ContactShowcase from '@/components/sections/ContactShowcase';
 import Partners from '@/components/sections/Partners';
 import LeadForm from '@/components/ui/LeadForm';
+import AeoFaqs from '@/components/sections/AeoFaqs';
 
 const ppcStages = [
     {
@@ -59,6 +60,19 @@ const industries = [
     { name: 'Hospitality', icon: <BarChart3 size={24} /> },
 ];
 
+const ppcFaqs = [
+  { question: 'What is PPC management and why do I need a specialist?', answer: 'Pay-Per-Click (PPC) management is the ongoing process of planning, launching, monitoring, and optimizing paid advertising campaigns across platforms like Google Ads, Meta, and LinkedIn. A specialist like eXposr uses proprietary scripts, data-driven bid strategies, and advanced audience segmentation that most in-house teams lack the tooling and expertise to replicate—leading to dramatically lower CPCs and higher ROAS.' },
+  { question: 'How does Google Smart Bidding actually work?', answer: 'Google Smart Bidding uses machine learning to set bids at auction-time using a vast array of contextual signals including device, location, time of day, search query, and user behavior history. Strategies like Target CPA and Target ROAS instruct Google to bid the precise amount needed to achieve your performance goals. eXposr\'s specialists configure, monitor, and constrain smart bidding with proprietary guard rails to prevent budget inefficiency during the AI\'s learning phases.' },
+  { question: 'What is Performance Max and should my brand use it?', answer: 'Performance Max (PMax) is Google\'s goal-based campaign type that uses AI to serve ads across all Google channels (Search, Display, YouTube, Shopping, Maps) from a single campaign. It works best for brands with sufficient conversion data and high-quality creative assets. eXposr assesses whether PMax is appropriate for your current stage and configures asset groups, audience signals, and brand exclusions to maximize signal quality and minimize wasted spend.' },
+  { question: 'How do I know if my PPC agency is actually performing?', answer: 'Key performance indicators to monitor include ROAS (return on ad spend), CPA (cost per acquisition), impression share, and click-through rate trends over time—not in isolation. Poor agencies optimize for vanity metrics (clicks, impressions) without tying spend to revenue. eXposr provides transparent reporting dashboards tied to real business outcomes: qualified leads, pipeline generated, and revenue attributed, with weekly performance reviews.' },
+  { question: 'What is remarketing and how effective is it for B2B brands?', answer: 'Remarketing delivers targeted ads to users who have previously visited your website or engaged with your content, keeping your brand top-of-mind throughout long B2B buying cycles. eXposr builds layered remarketing audiences segmented by funnel stage—site visitors, product page viewers, free trial sign-ups, and demo requesters—serving relevant, personalized ad experiences that accelerate deals through the pipeline.' },
+  { question: 'How do you prevent ad budget waste from invalid clicks and brand bidding?', answer: 'eXposr deploys automated click fraud detection scripts, comprehensive negative keyword management, and placement exclusion lists that continuously protect your budget from irrelevant, fraudulent, or competitor-generated clicks. For brand campaigns, we monitor competitor bidding activity and develop defensive strategies that protect brand CPCs. Our clients typically see a 15-25% immediate improvement in budget efficiency from these measures alone.' },
+  { question: 'LinkedIn Ads vs. Google Ads: which is better for SaaS lead generation?', answer: 'For SaaS, both play distinct roles in a mature demand generation strategy. Google Search Ads capture high-intent, bottom-of-funnel demand from prospects actively searching for solutions. LinkedIn Ads enables precise account-based marketing (ABM) by targeting by job title, company size, and industry—creating demand at the top of the funnel and nurturing decision-makers. eXposr builds integrated strategies that leverage both platforms in concert, typically lowering blended CAC significantly.' },
+  { question: 'How much ad spend do I need to get started?', answer: 'The minimum effective budget varies by industry and platform. For Google Search campaigns targeting competitive SaaS or B2B keywords, eXposr recommends a minimum of ₹1.5L-₹3L per month to gather statistically significant conversion data. Meta advertising can begin at lower thresholds. We always structure budgets to ensure you have enough data to test, learn, and optimize—avoiding the common mistake of spreading a small budget too thin across too many campaigns.' },
+  { question: 'What is a Quality Score and why does it affect my costs?', answer: 'Quality Score is Google\'s measure of the relevance and quality of your keywords, ads, and landing pages, rated 1-10. A high Quality Score directly lowers your cost-per-click (Google rewards relevant advertisers with cheaper clicks) and improves your ad rank. eXposr audits and optimises Quality Scores as a foundational activity, improving ad copy relevance, landing page alignment, and expected CTR to systematically reduce your CPCs across campaigns.' },
+  { question: 'Can you run PPC campaigns alongside our existing SEO strategy?', answer: 'Absolutely—and you should. PPC and SEO work best as complementary channels. PPC provides immediate, controllable visibility for high-priority keywords while your organic authority builds. Keyword data from PPC campaigns (actual search queries that convert) informs your SEO content strategy, and organic rankings reduce your dependence on paid traffic over time. eXposr\'s integrated growth approach manages both channels in unison to maximize total search visibility and minimize blended acquisition costs.' },
+];
+
 function ServiceItem({ stage, index, activeId, setActiveId }: { stage: any, index: number, activeId: string, setActiveId: (id: string) => void }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -87,10 +101,10 @@ function ServiceItem({ stage, index, activeId, setActiveId }: { stage: any, inde
                 <p className="text-lg md:text-xl text-black/60 font-medium leading-relaxed max-w-2xl">
                     {stage.description}
                 </p>
-                <div className="mt-12 flex items-center gap-4 group cursor-pointer inline-flex">
+                {/* <div className="mt-12 flex items-center gap-4 group cursor-pointer inline-flex">
                     <span className="text-xs font-black uppercase tracking-widest group-hover:mr-2 transition-all">View Process Details</span>
                     <ArrowRight size={16} className="text-black/40 group-hover:text-brand-orange transition-colors" />
-                </div>
+                </div> */}
             </motion.div>
         </div>
     );
@@ -114,7 +128,7 @@ export default function PPCManagementPage() {
                                 <div className="w-3 h-3 rounded-full bg-brand-orange"></div>
                                 <span className="text-[11px] font-black uppercase tracking-[0.4em] text-black/50">Performance Marketing Experts</span>
                             </div>
-                            <h1 className="text-5xl md:text-8xl lg:text-[94px] font-black text-black leading-[1.05] tracking-[-0.04em] mb-12">
+                            <h1 className="text-5xl md:text-8xl lg:text-[85px] font-black text-black  mb-12">
                                 Dominate Search <br className="hidden lg:block" />
                                 Drive Profitable Growth.
                             </h1>
@@ -321,29 +335,12 @@ export default function PPCManagementPage() {
             {/* Partners */}
             <Partners />
 
-            {/* FAQ - PPC Specific */}
-            <section className="py-8 px-6 bg-white">
-                <div className="container mx-auto max-w-5xl">
-                    <h2 className="text-5xl font-black text-black text-center mb-4 tracking-tight uppercase">PPC <span className="text-brand-orange">Insights</span></h2>
-                    <div className="grid grid-cols-1 gap-6">
-                        {[
-                            { q: "What is your typical management fee structure?", a: "We operate on a performance-aligned model, usually a base management fee plus a percentage of spend or revenue share depending on goals." },
-                            { q: "How quickly will I see a lift in ROAS?", a: "Most accounts see a noticeable improvement in efficiency within the first 14 days of our optimization script deployment." },
-                            { q: "Which platforms do you support?", a: "We are full-stack: Google Ads (Search, PMax, YouTube), Meta, LinkedIn, Amazon, and Programmatic Display." },
-                        ].map((faq, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                className="p-10 rounded-3xl border border-black/5 shadow-sm hover:shadow-md transition-shadow"
-                            >
-                                <h3 className="text-2xl font-black text-black mb-4 tracking-tight uppercase">{faq.q}</h3>
-                                <p className="text-black/50 text-lg leading-relaxed font-medium">{faq.a}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* AEO FAQ Section */}
+            <AeoFaqs
+                title="PPC Questions, Answered."
+                subtitle="Straight answers to the questions that determine whether your paid media investment delivers 3x or 12x returns."
+                faqs={ppcFaqs}
+            />
 
             {/* Final Contact Showcase */}
             <ContactShowcase />

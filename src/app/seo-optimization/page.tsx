@@ -15,6 +15,7 @@ import ContactShowcase from '@/components/sections/ContactShowcase';
 import Partners from '@/components/sections/Partners';
 import SEOServicesAccordion from '@/components/sections/SEOServicesAccordion';
 import SEOImpactReveal from '@/components/sections/SEOImpactReveal';
+import AeoFaqs from '@/components/sections/AeoFaqs';
 import LeadForm from '@/components/ui/LeadForm';
 
 const seoStages = [
@@ -50,6 +51,19 @@ const seoStages = [
     }
 ];
 
+const seoFaqs = [
+  { question: 'How long does SEO take to show results?', answer: 'For a well-optimised site working with eXposr, expect measurable organic traffic growth within 3-4 months. However, keyword rankings for competitive head terms may take 6-12 months to reach page one. Our approach combines quick-win technical fixes and content optimisation with a long-term domain authority building strategy, ensuring a constant upward trajectory throughout the engagement.' },
+  { question: 'What is the difference between technical SEO and on-page SEO?', answer: 'Technical SEO addresses the infrastructure of your website—crawlability, indexability, Core Web Vitals, schema markup, and site architecture. On-page SEO focuses on individual page-level signals like keyword placement, content depth, internal linking, and meta data. Both layers are equally critical; a technically perfect site with thin content will not rank, and neither will rich content on a website search engines cannot crawl efficiently.' },
+  { question: 'What is E-E-A-T and why does it matter for Google rankings?', answer: 'E-E-A-T stands for Experience, Expertise, Authoritativeness, and Trustworthiness. Google uses these quality signals to assess whether a page deserves to rank for a given query. At eXposr, we build E-E-A-T through author credentialing, digital PR link acquisition from high-authority publications, structured data implementation, and editorial content quality standards that demonstrate genuine subject matter expertise.' },
+  { question: 'How does AI impact modern SEO strategy?', answer: 'AI has fundamentally changed SEO in two ways. First, search engines like Google now use AI models (e.g., MUM, RankBrain) to interpret search intent beyond keyword matching—meaning content must comprehensively cover topics, not just target keywords. Second, AI tools allow eXposr to automate content gap analysis, semantic clustering, SERP opportunity modelling, and competitor intelligence at a scale that was previously impossible.' },
+  { question: 'What is programmatic SEO and is it safe to use?', answer: 'Programmatic SEO involves generating large volumes of landing pages from structured data to capture long-tail search demand at scale. When done correctly—with genuinely useful, unique content and proper indexation controls—it is a highly effective growth lever. eXposr builds programmatic SEO frameworks that comply with Google\'s Helpful Content guidelines while dramatically expanding your site\'s organic footprint.' },
+  { question: 'What are Core Web Vitals and how do they affect rankings?', answer: 'Core Web Vitals are Google\'s performance metrics: Largest Contentful Paint (LCP) measures loading speed, Interaction to Next Paint (INP) measures responsiveness, and Cumulative Layout Shift (CLS) measures visual stability. These are confirmed Google ranking factors. eXposr\'s technical SEO team audits and optimises all three metrics to ensure your site passes the Core Web Vitals assessment and gains the associated ranking advantage.' },
+  { question: 'How do backlinks still factor into SEO in 2025?', answer: 'Backlinks remain one of Google\'s most powerful ranking signals, but quality has definitively won over quantity. A single editorial link from a high-authority publication can outweigh hundreds of low-quality directory links. eXposr builds backlinks through digital PR, data-driven content marketing, and strategic outreach, acquiring placements that genuinely move both rankings and brand reputation.' },
+  { question: 'What is keyword cannibalization and how does it hurt rankings?', answer: 'Keyword cannibalization occurs when multiple pages on your site target the same keyword, causing them to compete against each other rather than consolidate authority onto a single, dominant page. This fragments ranking signals and confuses search engine crawlers. eXposr conducts a full keyword architecture audit as part of every engagement to identify and resolve cannibalization issues and consolidate content for maximum ranking power.' },
+  { question: 'Can you do SEO for a website built on any platform?', answer: 'Yes. eXposr\'s SEO team has extensive experience optimising websites across all major platforms including Next.js, WordPress, Webflow, Shopify, HubSpot CMS, and custom-built applications. Our technical SEO recommendations are always tailored to the specific constraints and opportunities of your platform, ensuring they are both best-practice and practically implementable.' },
+  { question: 'How does local SEO differ from national or global SEO?', answer: 'Local SEO focuses on ranking for geo-specific search queries (e.g., "digital marketing agency in Mumbai") and optimising your Google Business Profile, local citations, and location-specific landing pages. National and global SEO targets broader, non-location-dependent keywords with a focus on domain-wide topical authority. eXposr develops strategies appropriate to your specific geographic growth targets, often combining both approaches for multi-location businesses.' },
+];
+
 function ServiceItem({ stage, index, activeId, setActiveId }: { stage: any, index: number, activeId: string, setActiveId: (id: string) => void }) {
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -78,10 +92,10 @@ function ServiceItem({ stage, index, activeId, setActiveId }: { stage: any, inde
                 <p className="text-lg md:text-xl text-black/60 font-medium leading-relaxed max-w-2xl">
                     {stage.description}
                 </p>
-                <div className="mt-12 flex items-center gap-4 group cursor-pointer inline-flex">
+                {/* <div className="mt-12 flex items-center gap-4 group cursor-pointer inline-flex">
                     <span className="text-xs font-black uppercase tracking-widest group-hover:mr-2 transition-all">View Process Details</span>
                     <ArrowRight size={16} className="text-black/40 group-hover:text-brand-orange transition-colors" />
-                </div>
+                </div> */}
             </motion.div>
         </div>
     );
@@ -95,7 +109,7 @@ export default function SEOOptimizationPage() {
             {/* Minimalist Hero */}
             <section className="bg-white min-h-[90vh] pt-54 pb-8 px-6 md:px-12 flex items-start relative overflow-hidden">
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-2 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -109,8 +123,6 @@ export default function SEOOptimizationPage() {
                             <h1 
                                 className="text-6xl md:text-8xl lg:text-[95px] font-black text-black mb-8 mt-4"
                                 style={{ 
-                                    lineHeight: '0.88', 
-                                    letterSpacing: '-0.07em',
                                     transformOrigin: 'left center',
                                 }}
                             >
@@ -266,8 +278,12 @@ export default function SEOOptimizationPage() {
             {/* ── Web Shorties ── */}
             <WebShorties />
 
-            {/* ── Shared Sections ── */}
-            <ProductShowcase />
+            {/* ── SEO FAQs ── */}
+            <AeoFaqs
+                title="SEO Questions, Answered."
+                subtitle="Expert answers to the questions that actually determine whether your organic strategy wins or loses."
+                faqs={seoFaqs}
+            />
         </div>
     );
 }

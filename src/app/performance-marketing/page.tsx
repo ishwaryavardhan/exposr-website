@@ -9,6 +9,20 @@ import PMPlatformsTools from '@/components/sections/performance-marketing/PMPlat
 import ProductShowcase from '@/components/sections/ProductShowcase';
 import WebShorties from '@/components/sections/WebShorties';
 import WordReveal from '@/components/reactbits/WordReveal';
+import AeoFaqs from '@/components/sections/AeoFaqs';
+
+const perfFaqs = [
+  { question: 'What is full-funnel performance marketing?', answer: 'Full-funnel performance marketing is an integrated strategy that targets customers at every stage of the buying journey—from top-of-funnel awareness (reaching cold audiences unfamiliar with your brand) through mid-funnel consideration (nurturing prospects comparing options) to bottom-of-funnel conversion (driving purchase or sign-up decisions). eXposr designs coordinated messaging, creative, and channel strategies for each stage, ensuring no part of your funnel leaks revenue.' },
+  { question: 'What is multi-touch attribution and why does it matter?', answer: 'Multi-touch attribution (MTA) assigns credit for a conversion across all the marketing touchpoints a customer interacted with prior to converting—rather than crediting only the last click or first click. This gives a far more accurate picture of which channels and campaigns are actually driving revenue. eXposr implements data-driven attribution models using Google Analytics 4 and custom tracking frameworks, enabling smarter budget allocation decisions that reduce overall CAC.' },
+  { question: 'How do AI bidding algorithms improve performance marketing results?', answer: 'AI bidding algorithms process millions of contextual signals at auction time—device, location, time, audience behavior, weather, and intent signals—that no human can process at scale. Properly configured, they consistently outperform manual bidding by dynamically allocating budget to the highest-converting opportunities in real time. eXposr trains and constrains AI bidding systems with first-party data inputs and conversion event hierarchies that align the algorithm precisely to your business objectives, not just platform-level metrics.' },
+  { question: 'What is a Customer Acquisition Cost (CAC) and what is a good benchmark?', answer: 'Customer Acquisition Cost (CAC) is the total investment required (ad spend + agency fees) to acquire one new paying customer. Benchmarks vary widely by industry: SaaS companies typically target a CAC:LTV ratio of 1:3 or better, meaning the lifetime value of a customer should be at least 3x the cost to acquire them. eXposr tracks CAC at a granular level by channel and campaign, identifying where acquisition is most efficient and continuously reallocating budget to improve the overall ratio.' },
+  { question: 'What is a creative fatigue and how do you combat it in paid campaigns?', answer: 'Creative fatigue occurs when your target audience has been exposed to the same ad creative repeatedly, causing engagement rates (CTR, conversion rate) to decline. It is one of the most common causes of declining ROAS in mature campaigns. eXposr combats fatigue through disciplined creative refresh cycles, systematic A/B testing of ad copy, visuals and CTAs, and performance-threshold triggers that automatically pause underperforming creatives and rotate in fresh variants before fatigue significantly impacts results.' },
+  { question: 'How do you scale performance marketing campaigns without losing efficiency?', answer: 'Scaling paid campaigns while maintaining efficiency is one of the hardest problems in performance marketing. Simply increasing budget typically inflates CPCs and CPAs. eXposr scales through audience expansion (finding lookalike and adjacent audiences with high conversion probability), geographic expansion, dayparting optimization, and creative volume increases. We scale in controlled increments—monitoring efficiency metrics at each step—rather than making aggressive budget jumps that destabilize campaign learning phases.' },
+  { question: 'What first-party data strategies should I prioritise in a cookieless world?', answer: 'With third-party cookies being phased out, first-party data (data you collect directly from your customers and prospects) has become the most valuable asset in performance marketing. eXposr helps clients build first-party data strategies around CRM integration, email capture campaigns, gated content, and customer data platforms (CDPs). This data powers custom audiences, lookalike modeling, and personalization across paid channels—creating a durable competitive advantage that is immune to privacy regulation changes.' },
+  { question: 'How important is landing page optimization to performance marketing results?', answer: 'Critically important. You can have the most efficient ad targeting and the most compelling creative in the world, but if your landing page fails to convert visitors, you will never achieve your target CPA. eXposr treats landing page conversion rate optimization (CRO) as an integral part of performance marketing—not an afterthought. We audit landing pages for message match, page speed, form friction, trust signals, and mobile UX, testing improvements systematically to improve conversion rates before scaling spend.' },
+  { question: 'What reporting metrics should performance marketing campaigns be measured by?', answer: 'The right metrics depend on your business model, but the hierarchy we recommend is: Revenue Attributed → ROAS → CPA → Conversion Rate → CTR. Avoid optimizing for upstream vanity metrics (impressions, clicks) in isolation. eXposr builds bespoke performance dashboards that surface the metrics directly tied to your business outcomes, updated in real time, with weekly and monthly performance review calls to contextualize the data and align on strategic decisions.' },
+  { question: 'How does performance marketing differ from brand marketing?', answer: 'Performance marketing is measurable, outcome-focused advertising where you pay for and measure specific actions (clicks, leads, purchases, sign-ups). Brand marketing focuses on long-term awareness, perception, and preference building where ROI is harder to measure directly but creates the conditions that make performance marketing more efficient over time. eXposr typically recommends a blended 70/30 or 80/20 split (performance/brand) for growth-stage companies, shifting toward more brand investment as market position matures.' },
+];
 
 export default function PerformanceMarketingPage() {
     return (
@@ -97,29 +111,12 @@ export default function PerformanceMarketingPage() {
                 </div>
             </section>
 
-            {/* 10. FAQs */}
-            <section className="py-32 px-6 bg-white">
-                <div className="container mx-auto max-w-5xl">
-                    <h2 className="text-5xl font-black text-black text-center mb-24 tracking-tight uppercase">Performance <span className="text-black/30">FAQs</span></h2>
-                    <div className="grid grid-cols-1 gap-6">
-                        {[
-                            { q: "How do you define ROI?", a: "We look beyond just clicks. We track end-to-end conversions and life-time value to ensure your marketing spend is truly profitable." },
-                            { q: "What budget should I start with?", a: "We recommend a budget that's large enough to gather statistically significant data for testing, usually depending on your industry scale." },
-                            { q: "Do you handle creative as well?", a: "Yes, our performance teams work closely with our creative department to ensure high-converting ad assets." },
-                        ].map((faq, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                className="p-10 rounded-3xl border border-black/5 shadow-sm hover:shadow-md transition-shadow"
-                            >
-                                <h3 className="text-2xl font-black text-black mb-4 tracking-tight uppercase">{faq.q}</h3>
-                                <p className="text-black/50 text-lg leading-relaxed font-medium">{faq.a}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* 10. FAQs - AEO Optimized */}
+            <AeoFaqs
+                title="Performance Marketing FAQs."
+                subtitle="The strategic answers behind the metrics that matter most to your growth."
+                faqs={perfFaqs}
+            />
 
             {/* 11 & 12 (CTA & Footer are in layout.tsx) */}
         </div>

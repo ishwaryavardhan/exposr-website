@@ -11,6 +11,7 @@ import MediaImpactReveal from '@/components/sections/MediaImpactReveal';
 import MediaServicesTimeline from '@/components/sections/MediaServicesTimeline';
 import WebShorties from '@/components/sections/WebShorties';
 import LeadForm from '@/components/ui/LeadForm';
+import AeoFaqs from '@/components/sections/AeoFaqs';
 
 // ── Workflow stages ─────────────────────────────────────────────────────────
 const stages = [
@@ -56,6 +57,19 @@ const formats = [
     { icon: Video, title: "Corporate Videos", desc: "Investor decks, product demos, recruitment and internal comms content." },
     { icon: Tv, title: "Event Coverage", desc: "Multi-camera live event and documentary-style brand activation capture." },
     { icon: Monitor, title: "Post-Production", desc: "Editing, colour grading, sound design and platform delivery mastering." },
+];
+
+const mediaFaqs = [
+  { question: 'What is included in a full-service media production package?', answer: 'A full-service media production package from eXposr includes every stage of video creation: from initial creative brief, concept development, scriptwriting, and storyboarding (pre-production), through on-location shooting with cinema-grade equipment and professional crew (production), to editing, colour grading, sound design, motion graphics, and platform-optimized delivery (post-production). We handle everything end-to-end, delivering broadcast-ready, deployment-optimized assets.' },
+  { question: 'How much does a brand film or commercial video production cost in India?', answer: 'Brand film production costs in India typically range from ₹3L for a minimalist single-location shoot to ₹25L+ for multi-location, high-end commercial productions with talent and complex post-production requirements. eXposr provides transparent, itemized production quotes based on your specific creative brief—there are no hidden costs. We also offer retainer-based production packages for brands requiring consistent monthly content output, which significantly reduces per-asset costs.' },
+  { question: 'How long does a typical video production project take?', answer: 'Timeline depends on project complexity. A social media content series (Reels, product videos) typically takes 2-3 weeks from brief to delivery. A brand film or TVC production runs 4-8 weeks, accounting for pre-production planning, shoot days, and post-production. Documentary or event coverage projects vary by scale. eXposr provides detailed project timelines with client approval checkpoints at each stage, ensuring your campaign deadlines are always met.' },
+  { question: 'What video formats do you produce and deliver?', answer: 'eXposr produces and delivers platform-optimized cuts in all major formats: 16:9 (YouTube, broadcast, LinkedIn), 9:16 (Instagram Reels, TikTok, YouTube Shorts), 1:1 (Instagram and Facebook feed), 4:3 (legacy display and CTV). For each hero asset, we standard-produce all required aspect ratio variants as part of the package—meaning your content is deployment-ready across every channel from day one of delivery.' },
+  { question: 'Do you handle talent (actors, models) and location sourcing?', answer: 'Yes. eXposr\'s production management team handles all talent casting—from professional actors and models to industry experts, brand ambassadors, and real-customer testimonials—through our established network of talent agencies and casting resources. We also manage location scouting, recce visits, permit applications, and logistics coordination for both studio and on-location shoots across India.' },
+  { question: 'How does video content impact digital marketing performance?', answer: 'Video content consistently outperforms static assets across virtually every digital marketing KPI. Video achieves 3x higher engagement rates on social media, increases time-on-site by an average of 88% (improving SEO signals), and increases conversion rates on landing pages by 80% on average. For paid advertising, video ads deliver significantly lower CPMs and higher ROAS than static image ads across Meta and YouTube. eXposr integrates media production with performance marketing strategy, ensuring every asset is shot and edited to maximize measurable digital performance.' },
+  { question: 'What camera and equipment does eXposr use for productions?', answer: 'eXposr shoots on cinema-grade camera systems including the Sony VENICE, RED KOMODO, and ARRI Mini LF depending on the production requirements. Our lighting rigs combine ARRI SkyPanel LED units, vintage tungsten fresnels, and large-format diffusion setups that deliver cinematic production quality. Audio is captured on professional Sennheiser and DPA microphone systems, with all signal chains monitored and recorded to broadcast-quality specifications on every production.' },
+  { question: 'Can you create animated or motion graphics content without a live shoot?', answer: 'Yes. eXposr\'s post-production and motion graphics team creates fully animated content—2D explainer animations, kinetic typography, 3D product renders, and data visualization sequences—without any live-action shooting. This is a highly cost-effective content format for SaaS product demos, onboarding videos, investor presentations, and complex B2B brand stories where visual explanation outperforms live footage.' },
+  { question: 'What makes a video content strategy effective for B2B brands?', answer: 'An effective B2B video strategy requires content tailored to each stage of the long B2B buying cycle. Top-of-funnel content (thought leadership, brand films, trend analysis) builds awareness and credibility. Mid-funnel content (case study videos, product demonstrations, comparison content) addresses specific evaluation criteria. Bottom-of-funnel content (customer testimonials, ROI proof, implementation walkthroughs) removes final purchase barriers. eXposr develops full-funnel video content calendars aligned to your buyer journey and campaign objectives.' },
+  { question: 'Do you offer ongoing content production retainers?', answer: 'Yes, and for most brands requiring consistent social media and digital content output, a production retainer is significantly more cost-effective than commissioning individual projects. eXposr\'s content retainer packages include a fixed monthly volume of Reels, short-form videos, photography sets, and motion graphics assets produced on a rolling shoot schedule. Retainer clients also benefit from priority scheduling, reduced per-asset rates, and a dedicated production team that develops a deep understanding of your brand over time.' },
 ];
 
 // ── Stage item ───────────────────────────────────────────────────────────────
@@ -121,7 +135,7 @@ export default function MediaProductionPage() {
 
                             <h1
                                 className="text-6xl md:text-8xl lg:text-[95px] font-black text-black mb-8 mt-4"
-                                style={{ lineHeight: '0.88', letterSpacing: '-0.07em' }}
+                                style={{ lineHeight: '0.88' }}
                             >
                                 Every Frame.<br />
                                 A{" "}
@@ -452,6 +466,14 @@ export default function MediaProductionPage() {
             {/* ── Shared Sections ── */}
             <ProductShowcase />
             <Partners />
+            
+            {/* ── AEO FAQs ── */}
+            <AeoFaqs
+                title="Media Production FAQs."
+                subtitle="Everything you need to know before commissioning your next production."
+                faqs={mediaFaqs}
+            />
+            
             <ContactShowcase />
         </div>
     );

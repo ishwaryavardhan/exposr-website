@@ -97,13 +97,18 @@ const ProductShowcase = () => {
             </div>
         </div>
 
-        {/* 3. IMAGE: Shifted left on mobile to avoid overlapping text */}
-        <Image
-            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=1000"
-            alt="Product 01"
-            fill
-            className="object-cover object-right md:object-center opacity-100 group-hover:scale-105 transition-transform duration-1000"
-        />
+        {/* 3. VIDEO BACKGROUND: Replaced image with video */}
+        <div className="absolute inset-0 z-0">
+            <video
+                className="absolute inset-0 w-full h-full object-cover object-right md:object-center opacity-100 group-hover:scale-105 transition-transform duration-1000"
+                autoPlay
+                muted
+                loop
+                playsInline
+            >
+                <source src="https://res.cloudinary.com/dabyqx1mz/video/upload/v1774895963/reel_1_tz52x0.mov" type="video/mp4" />
+            </video>
+        </div>
 
         {/* 4. ARROW BUTTON: Bottom Left on mobile */}
         <div className="absolute bottom-6 left-6 md:bottom-10 md:right-10 md:left-auto z-30">
@@ -125,13 +130,19 @@ const ProductShowcase = () => {
                         onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('02')}
                     >
-                        <BentoCard className="h-[450px] md:h-[500px] bg-[#E5E7EB]">
-                            <Image
-                                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
-                                alt="Product 02"
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-1000"
-                            />
+                        <BentoCard className="h-[450px] md:h-[500px] bg-[#E5E7EB] relative overflow-hidden">
+                            {/* Video Background */}
+                            <div className="absolute inset-0 z-0">
+                                <video
+                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                >
+                                    <source src="https://res.cloudinary.com/dabyqx1mz/video/upload/v1774895857/IMG_3228_zuhkrp.mp4" type="video/mp4" />
+                                </video>
+                            </div>
                         </BentoCard>
                     </motion.div>
 
@@ -143,8 +154,22 @@ const ProductShowcase = () => {
                         onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('03')}
                     >
-                        <BentoCard className="h-[350px] md:h-[400px] bg-gradient-to-br from-orange-600 to-red-700">
-                            <div className="p-8 md:p-12 h-full flex flex-col justify-between">
+                        <BentoCard className="h-[350px] md:h-[400px] relative overflow-hidden">
+                            {/* Video Background */}
+                            <div className="absolute inset-0 z-0">
+                                <video
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                >
+                                    <source src="https://res.cloudinary.com/dabyqx1mz/video/upload/v1774895845/IMG_6293_fijpvt.mp4" type="video/mp4" />
+                                </video>
+                            </div>
+                            {/* Semi-transparent overlay for text readability */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-orange-600/80 to-red-700/80 z-5" />
+                            <div className="p-8 md:p-12 h-full flex flex-col justify-between relative z-10">
                                 <span className="text-5xl md:text-6xl font-black text-white italic tracking-tighter">TM.</span>
                                 <p className="text-sm md:text-base font-bold text-white/80 leading-tight uppercase tracking-widest">
                                     To the creators who envisioned tomorrow, and to those who will shape it with boldness and curiosity.
@@ -161,32 +186,38 @@ const ProductShowcase = () => {
                         onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('04')}
                     >
-                        <BentoCard className="h-auto min-h-[400px] md:h-[400px] bg-[#BEC2C7] p-8 md:p-12">
-                            <div className="relative h-full w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0">
+                        <BentoCard className="h-auto min-h-[400px] md:h-[400px] bg-[#BEC2C7] p-8 md:p-12 relative overflow-hidden">
+                            {/* Video Background */}
+                            <div className="absolute inset-0 z-0">
+                                <video
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                >
+                                    <source src="https://res.cloudinary.com/dabyqx1mz/video/upload/v1774895828/Hard_Rock_bxpixy.mp4" type="video/mp4" />
+                                </video>
+                            </div>
+                            
+                            {/* Semi-transparent overlay for text readability */}
+                            <div className="absolute inset-0 bg-black/20 z-5" />
+                            
+                            <div className="relative h-full w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0 z-10">
                                 
-                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 z-10">
-                                    <div><span className="text-black block mb-1">Model</span> M * G — 2</div>
-                                    <div><span className="text-black block mb-1">Protocol</span> HTTPS://CORE</div>
+                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/80 z-10">
+                                    <div><span className="text-white block mb-1">Model</span> M * G — 2</div>
+                                    <div><span className="text-white block mb-1">Protocol</span> HTTPS://CORE</div>
                                 </div>
 
-                                <div className="hidden md:flex flex-col gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 text-center z-10">
+                                <div className="hidden md:flex flex-col gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/60 text-center z-10">
                                     <div>(C) 2026</div>
-                                    <div className="text-black">EXPOSR.SYSTEMS</div>
+                                    <div className="text-white">EXPOSR.SYSTEMS</div>
                                 </div>
 
-                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 md:text-right z-10">
+                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/60 md:text-right z-10">
                                     <div>NEW FACES / N-VISION</div>
-                                    <div className="text-black">DVL 09:30:21XZ</div>
-                                </div>
-
-                                {/* Floating Image - Scaled down on mobile to not cover text */}
-                                <div className="absolute -bottom-4 -right-4 w-48 h-48 md:w-80 md:h-80 pointer-events-none">
-                                    <Image
-                                        src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1000"
-                                        alt="Product 04"
-                                        fill
-                                        className="object-contain group-hover:scale-110 transition-transform duration-1000"
-                                    />
+                                    <div className="text-white">DVL 09:30:21XZ</div>
                                 </div>
                             </div>
                         </BentoCard>

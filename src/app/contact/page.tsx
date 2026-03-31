@@ -6,13 +6,13 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import BlurText from '@/components/reactbits/BlurText';
 
 export default function ContactPage() {
-    const [formData, setFormData] = useState({ 
-        businessName: '', 
-        name: '', 
-        email: '', 
-        phone: '', 
-        service: 'Performance Marketing', 
-        message: '' 
+    const [formData, setFormData] = useState({
+        businessName: '',
+        name: '',
+        email: '',
+        phone: '',
+        service: 'Performance Marketing',
+        message: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -22,7 +22,7 @@ export default function ContactPage() {
         e.preventDefault();
         setIsSubmitting(true);
         setError('');
-        
+
         try {
             const res = await fetch('/api/leads', {
                 method: 'POST',
@@ -30,17 +30,17 @@ export default function ContactPage() {
                 body: JSON.stringify({ ...formData, source: 'Contact Page' })
             });
             const data = await res.json();
-            
+
             if (res.ok && data.success) {
                 setSuccess(true);
-                setFormData({ 
-                businessName: '', 
-                name: '', 
-                email: '', 
-                phone: '', 
-                service: 'Performance Marketing', 
-                message: '' 
-            });
+                setFormData({
+                    businessName: '',
+                    name: '',
+                    email: '',
+                    phone: '',
+                    service: 'Performance Marketing',
+                    message: ''
+                });
             } else {
                 setError(data.message || 'Something went wrong');
             }
@@ -67,8 +67,8 @@ export default function ContactPage() {
                     <div>
                         <div className="space-y-12 mb-20">
                             {[
-                                { icon: <Mail size={24} />, label: "Email Us", val: "growth@exposr.in", href: "mailto:growth@exposr.in" },
-                                { icon: <Phone size={24} />, label: "Call Us", val: "+91 98765 43210", href: "tel:+919876543210" },
+                                { icon: <Mail size={24} />, label: "Email Us", val: "contact@exposr.co", href: "mailto:contact@exposr.co" },
+                                { icon: <Phone size={24} />, label: "Call Us", val: "+91 83001 09955", href: "tel:+919876543210" },
                                 { icon: <MapPin size={24} />, label: "Our Office", val: "Mumbai, Maharashtra, India", href: "#" },
                             ].map((item, idx) => (
                                 <motion.div
@@ -120,56 +120,56 @@ export default function ContactPage() {
                                 </button>
                             </div>
                         ) : (
-                        <form onSubmit={handleSubmit} className="space-y-8">
-                            {error && <div className="text-red-500 text-sm font-semibold p-4 bg-red-50 rounded-xl">{error}</div>}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div className="space-y-3">
-                                    <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Business Name</label>
-                                    <input value={formData.businessName} onChange={e => setFormData({...formData, businessName: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="Your Company Name" />
+                            <form onSubmit={handleSubmit} className="space-y-8">
+                                {error && <div className="text-red-500 text-sm font-semibold p-4 bg-red-50 rounded-xl">{error}</div>}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Business Name</label>
+                                        <input value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="Your Company Name" />
+                                    </div>
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
+                                        <input required value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="Your Name" />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Email Address</label>
+                                        <input required type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="name@company.com" />
+                                    </div>
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
+                                        <input
+                                            required
+                                            type="tel"
+                                            value={formData.phone}
+                                            onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                                            pattern="[6-9][0-9]{9}"
+                                            maxLength={10}
+                                            onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Enter a valid 10-digit Indian mobile number starting with 6, 7, 8 or 9')}
+                                            onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
+                                            className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10"
+                                            placeholder="98XXXXXXXX"
+                                        />
+                                    </div>
                                 </div>
                                 <div className="space-y-3">
-                                    <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Full Name</label>
-                                    <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="Your Name" />
+                                    <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Service Required</label>
+                                    <select value={formData.service} onChange={e => setFormData({ ...formData, service: e.target.value })} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all appearance-none cursor-pointer">
+                                        <option>Performance Marketing</option>
+                                        <option>SEO & Content</option>
+                                        <option>Production House</option>
+                                        <option>Other</option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="space-y-3">
-                                    <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Email Address</label>
-                                    <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10" placeholder="name@company.com" />
+                                    <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Your Message</label>
+                                    <textarea required value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} rows={4} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10 resize-none" placeholder="Tell us about your goals..."></textarea>
                                 </div>
-                                <div className="space-y-3">
-                                    <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Phone Number</label>
-                                    <input
-                                        required
-                                        type="tel"
-                                        value={formData.phone}
-                                        onChange={e => setFormData({...formData, phone: e.target.value})}
-                                        pattern="[6-9][0-9]{9}"
-                                        maxLength={10}
-                                        onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Enter a valid 10-digit Indian mobile number starting with 6, 7, 8 or 9')}
-                                        onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
-                                        className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10"
-                                        placeholder="98XXXXXXXX"
-                                    />
-                                </div>
-                            </div>
-                            <div className="space-y-3">
-                                <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Service Required</label>
-                                <select value={formData.service} onChange={e => setFormData({...formData, service: e.target.value})} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all appearance-none cursor-pointer">
-                                    <option>Performance Marketing</option>
-                                    <option>SEO & Content</option>
-                                    <option>Production House</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            <div className="space-y-3">
-                                <label className="text-[10px] font-black text-black/30 uppercase tracking-[0.2em] ml-1">Your Message</label>
-                                <textarea required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} rows={4} className="w-full bg-white border-b-2 border-black/10 px-0 py-4 text-black font-semibold focus:outline-none focus:border-black transition-all placeholder:text-black/10 resize-none" placeholder="Tell us about your goals..."></textarea>
-                            </div>
-                            <button disabled={isSubmitting} type="submit" className="w-full py-5 bg-brand-orange hover:bg-brand-orange/90 text-black font-black rounded-2xl transition-all uppercase tracking-[0.2em] text-xs mt-8 shadow-xl shadow-brand-orange/10 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed">
-                                {isSubmitting ? 'Sending...' : 'Send Message'} {!isSubmitting && <Send size={16} />}
-                            </button>
-                        </form>
+                                <button disabled={isSubmitting} type="submit" className="w-full py-5 bg-brand-orange hover:bg-brand-orange/90 text-black font-black rounded-2xl transition-all uppercase tracking-[0.2em] text-xs mt-8 shadow-xl shadow-brand-orange/10 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed">
+                                    {isSubmitting ? 'Sending...' : 'Send Message'} {!isSubmitting && <Send size={16} />}
+                                </button>
+                            </form>
                         )}
                     </motion.div>
                 </div>

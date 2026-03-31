@@ -144,11 +144,10 @@ export default function Home() {
 
         <div className="flex flex-col gap-12 group pb-15">
           {[
-            ["AFAQS!", "FOXGLOVE", "MENTOS", "STREAX", "VODAFONE", "IDEA", "AIRTEL"],
-            ["TATA PLAY", "ZEE5", "SONY LIV", "DISNEY+", "HOTSTAR", "NETFLIX", "AMAZON"],
-            ["RELIANCE", "JIO", "BYJU'S", "UNACADEMY", "UPGRAD", "SCALER", "ZOMATO"],
-            ["SWIGGY", "BLINKIT", "ZEPTO", "CRED", "RAZORPAY", "PHONEPE", "PAYTM"],
-            ["NYKAA", "MAMAEARTH", "SUGAR", "PLUM", "WOW", "MCaffeine", "EXPOSR"]
+            ["Lavie", "Sri Bhojan", "Fue Tree Clinic", "Kanmani Fertility Centre", "VSEP"],
+            ["SolarRun", "Happy Socks", "Hard Rockk", "Hungover", "Upfunda"],
+            ["Nitrous Oxide Spec", "AppBowl", "Microline", "Limn", "Nine Oh Nine"],
+            ["Bajoria Hospitality", "thefsync", "Fluency Arc", "CII SOL", "Roast and Leaf"]
           ].map((row, rowIdx) => (
             <div key={rowIdx} className="flex flex-wrap justify-center gap-8 md:gap-16">
               {row.map((client, clientIdx) => (
@@ -164,7 +163,7 @@ export default function Home() {
                     delay: (rowIdx * 0.1) + (clientIdx * 0.05)
                   }}
                   viewport={{ once: true }}
-                  className="text-2xl md:text-4xl font-black tracking-tighter text-white whitespace-nowrap cursor-default opacity-30 group-hover:opacity-10 hover:!opacity-100 hover:!text-brand-orange transition-all duration-300"
+                  className="text-2xl md:text-4xl font-black tracking-tighter text-white whitespace-nowrap cursor-default opacity-30 group-hover:opacity-10 hover:!opacity-100 hover:!text-brand-orange transition-all duration-300 uppercase"
                 >
                   {client}
                 </motion.div>

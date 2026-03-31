@@ -131,17 +131,15 @@ const ProductShowcase = () => {
                         onClick={() => handleInteraction('02')}
                     >
                         <BentoCard className="h-[450px] md:h-[500px] bg-[#E5E7EB] relative overflow-hidden">
-                            {/* Video Background */}
+                            {/* Image Background */}
                             <div className="absolute inset-0 z-0">
-                                <video
-                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                >
-                                    <source src="https://res.cloudinary.com/dabyqx1mz/video/upload/v1774895857/IMG_3228_zuhkrp.mp4" type="video/mp4" />
-                                </video>
+                                <Image
+                                    src="/DSC01659.JPG.jpeg"
+                                    alt="Work Portrait"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                />
                             </div>
                         </BentoCard>
                     </motion.div>
@@ -205,20 +203,7 @@ const ProductShowcase = () => {
                             
                             <div className="relative h-full w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0 z-10 p-8 md:p-12">
                                 
-                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/80 z-10">
-                                    <div><span className="text-white block mb-1">Model</span> M * G — 2</div>
-                                    <div><span className="text-white block mb-1">Protocol</span> HTTPS://CORE</div>
-                                </div>
-
-                                <div className="hidden md:flex flex-col gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/60 text-center z-10">
-                                    <div>(C) 2026</div>
-                                    <div className="text-white">EXPOSR.SYSTEMS</div>
-                                </div>
-
-                                <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/60 md:text-right z-10">
-                                    <div>NEW FACES / N-VISION</div>
-                                    <div className="text-white">DVL 09:30:21XZ</div>
-                                </div>
+                              
                             </div>
                         </BentoCard>
                     </motion.div>

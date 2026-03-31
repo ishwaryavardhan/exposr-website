@@ -312,8 +312,8 @@ export default function PPCManagementPage() {
                 </div>
                 <div className="flex flex-col gap-12">
                     {[
-                        ["AFAQS!", "FOXGLOVE", "MENTOS", "STREAX", "VODAFONE", "IDEA", "AIRTEL"],
-                        ["RELIANCE", "JIO", "BYJU'S", "UNACADEMY", "UPGRAD", "SCALER", "ZOMATO"]
+                        ["Lavie", "Sri Bhojan", "Fue Tree Clinic", "Kanmani Fertility Centre", "VSEP", "SolarRun", "Happy Socks", "Hard Rockk", "Hungover", "Upfunda"],
+                        ["Nitrous Oxide Spec", "AppBowl", "Microline", "Limn", "Nine Oh Nine", "Bajoria Hospitality", "thefsync", "Fluency Arc", "CII SOL", "Roast and Leaf"]
                     ].map((row, rowIdx) => (
                         <div key={rowIdx} className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-30 hover:opacity-100 transition-opacity duration-700">
                             {row.map((client, clientIdx) => (

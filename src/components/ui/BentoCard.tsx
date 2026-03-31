@@ -31,7 +31,7 @@ export const BentoCard = ({ children, className }: BentoCardProps) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className={cn(
-                "relative rounded-[2rem] overflow-hidden border border-white/5 bg-[#16181D] group/bento",
+                "relative rounded-[2rem] overflow-hidden border border-white/5 bg-[#16181D] group/bento flex flex-col",
                 className
             )}
         >
@@ -53,7 +53,7 @@ export const BentoCard = ({ children, className }: BentoCardProps) => {
                 }}
             />
 
-            <div className="relative z-0 h-full w-full">
+            <div className="relative z-0 flex-1 h-full w-full">
                 {children}
             </div>
         </div>

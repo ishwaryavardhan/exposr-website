@@ -186,11 +186,11 @@ const ProductShowcase = () => {
                         onMouseLeave={() => setClickedId(null)}
                         onClick={() => handleInteraction('04')}
                     >
-                        <BentoCard className="h-auto min-h-[400px] md:h-[400px] bg-[#BEC2C7] p-8 md:p-12 relative overflow-hidden">
+                        <BentoCard className="h-[450px] md:h-[400px] bg-black relative overflow-hidden border-none">
                             {/* Video Background */}
                             <div className="absolute inset-0 z-0">
                                 <video
-                                    className="absolute inset-0 w-full h-full object-cover"
+                                    className="absolute inset-0 w-full h-full object-cover object-center scale-110 group-hover:scale-115 transition-transform duration-1000"
                                     autoPlay
                                     muted
                                     loop
@@ -201,9 +201,9 @@ const ProductShowcase = () => {
                             </div>
                             
                             {/* Semi-transparent overlay for text readability */}
-                            <div className="absolute inset-0 bg-black/20 z-5" />
+                            <div className="absolute inset-0 bg-black/40 z-5" />
                             
-                            <div className="relative h-full w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0 z-10">
+                            <div className="relative h-full w-full flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0 z-10 p-8 md:p-12">
                                 
                                 <div className="flex flex-col gap-6 md:gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-white/80 z-10">
                                     <div><span className="text-white block mb-1">Model</span> M * G — 2</div>

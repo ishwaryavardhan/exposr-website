@@ -51,7 +51,7 @@ const ContactShowcase = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-sm font-black uppercase tracking-widest text-black/30 mb-1">Quick Connect</h4>
-                                    <p className="text-lg font-bold text-black">growth@exposr.media</p>
+                                    <p className="text-lg font-bold text-black">contact@exposr.co</p>
                                 </div>
                             </div>
                             <div className="p-8 rounded-[2rem] bg-white border border-black/5 shadow-sm space-y-4 group cursor-pointer hover:border-black/10 transition-colors">

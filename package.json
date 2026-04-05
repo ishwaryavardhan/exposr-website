@@ -10,7 +10,6 @@
     "postinstall": "npx prisma generate"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.1.10",
     "@prisma/client": "^5.22.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",

@@ -24,6 +24,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "@id": "https://www.xposr.com/#organization",
+                "name": "eXposr",
+                "url": "https://www.xposr.com/",
+                "logo": "https://www.xposr.com/logo.png",
+                "description": "Accelerating Indian brands with high-conversion digital marketing, SEO, and performance marketing strategies.",
+                "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+                "sameAs": [
+                    "https://twitter.com/exposr",
+                    "https://www.linkedin.com/company/exposr",
+                    "https://www.youtube.com/exposr"
+                ]
+            }).replace(/</g, '\\u003c') }}
+        />
+      </head>
       <body
         className={`${inter.variable} antialiased selection:bg-black selection:text-white`}
       >

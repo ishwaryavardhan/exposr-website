@@ -1,0 +1,69 @@
+﻿
+
+    Directory: D:\personal\botflare\Ajay\x
+    posr\website\public\case 
+    studies\Exposr\portfolio- PPC\GEO 
+    Result
+
+
+Mode                 LastWriteTime  Length
+----                 -------------  ------
+-a----        03-04-2026     17:47  142957
+-a----        03-04-2026     17:47  152124
+-a----        03-04-2026     17:47  127848
+
+
+    Directory: D:\personal\botflare\Ajay\x
+    posr\website\public\case 
+    studies\Exposr\portfolio- PPC\screen 
+    shots
+
+
+Mode                 LastWriteTime  Length
+----                 -------------  ------
+-a----        03-04-2026     14:40   75324
+-a----        03-04-2026     14:40  123633
+-a----        03-04-2026     14:40   64533
+-a----        03-04-2026     14:40  104028
+-a----        03-04-2026     14:40   79113
+
+
+    Directory: D:\personal\botflare\Ajay\x
+    posr\website\public\case 
+    studies\Exposr\portfolio- PPC\videos
+
+
+Mode                 LastWriteTime  Length
+----                 -------------  ------
+-a----        03-04-2026     14:40 8303410
+-a----        03-04-2026     14:40 2880899
+-a----        03-04-2026     14:40 9965592
+-a----        03-04-2026     14:40 1593765
+-a----        03-04-2026     14:40  894983
+-a----        03-04-2026     16:31 1497959
+-a----        03-04-2026     16:35 4498933
+
+
+    Directory: D:\personal\botflare\Ajay\x
+    posr\website\public\case 
+    studies\google ads and X
+
+
+Mode                 LastWriteTime  Length
+----                 -------------  ------
+-a----        03-04-2026     16:45  158205
+-a----        03-04-2026     16:45   59618
+
+
+    Directory: D:\personal\botflare\Ajay\x
+    posr\website\public\case 
+    studies\shoppify
+
+
+Mode                 LastWriteTime  Length
+----                 -------------  ------
+-a----        03-04-2026     16:45  188464
+-a----        03-04-2026     16:45  141626
+-a----        03-04-2026     16:45   61298
+
+

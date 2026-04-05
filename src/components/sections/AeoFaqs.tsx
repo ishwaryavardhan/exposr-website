@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 export type FaqItem = {
@@ -37,18 +37,19 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
     };
 
     return (
-        <section className="bg-white py-24 md:py-32 px-6 relative">
+        <LazyMotion features={domAnimation}>
+            <section className="bg-white py-24 md:py-32 px-6 relative">
             {/* Inject JSON-LD Schema for Google/AI crawling */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }}
             />
 
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10 items-start">
                 
                 {/* Left Column: Headers */}
                 <div className="lg:col-span-4 flex flex-col items-start top-32 self-start h-fit">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
@@ -56,9 +57,9 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
                         className="inline-block border border-black/10 rounded-full px-4 py-1.5 mb-6"
                     >
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-orange">AEO / FAQ</span>
-                    </motion.div>
+                    </m.div>
                     
-                    <motion.h2 
+                    <m.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
@@ -66,9 +67,9 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
                         className="text-4xl md:text-5xl lg:text-6xl font-black text-black tracking-tighter leading-[1.1] mb-6"
                     >
                         {title}
-                    </motion.h2>
+                    </m.h2>
                     
-                    <motion.p 
+                    <m.p 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.1 }}
@@ -76,7 +77,7 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
                         className="text-lg md:text-xl font-bold text-black/40 leading-relaxed max-w-sm"
                     >
                         {subtitle}
-                    </motion.p>
+                    </m.p>
                 </div>
 
                 {/* Right Column: Accordion */}
@@ -85,7 +86,7 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
                         const isOpen = openIndex === index;
                         
                         return (
-                            <motion.div 
+                            <m.div 
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.05 }}
@@ -107,7 +108,7 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
                                 
                                 <AnimatePresence initial={false}>
                                     {isOpen && (
-                                        <motion.div
+                                        <m.div
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
@@ -120,16 +121,17 @@ const AeoFaqs: React.FC<AeoFaqsProps> = ({
                                                     {faq.answer}
                                                 </p>
                                             </div>
-                                        </motion.div>
+                                        </m.div>
                                     )}
                                 </AnimatePresence>
-                            </motion.div>
+                            </m.div>
                         );
                     })}
                 </div>
 
             </div>
         </section>
+        </LazyMotion>
     );
 };
 

@@ -66,6 +66,11 @@ const VideoMessengerInline = ({
     ];
 
     const isSEOPage = pathname.includes('seo');
+    const isUSPage = pathname.includes('/us/');
+
+    const currentBudgets = isUSPage 
+        ? ["$1,000 – $2,500 / mo", "$2,500 – $5,000 / mo", "$5,000 – $10,000 / mo", "$10,000+ / mo"]
+        : (isSEOPage ? seoBudgets : budgets);
 
     // Determine current service context based on URL
     useEffect(() => {
@@ -265,9 +270,9 @@ const VideoMessengerInline = ({
                                 placeholder="Phone Number"
                                 value={formData.phone}
                                 onChange={e => setFormData({...formData, phone: e.target.value})}
-                                pattern="[6-9][0-9]{9}"
-                                maxLength={10}
-                                onInvalid={e => (e.target as HTMLInputElement).setCustomValidity('Enter a valid 10-digit number starting with 6, 7, 8 or 9')}
+                                pattern={isUSPage ? ".{10,}" : "[6-9][0-9]{9}"}
+                                maxLength={isUSPage ? 15 : 10}
+                                onInvalid={e => (e.target as HTMLInputElement).setCustomValidity(isUSPage ? 'Enter a valid phone number' : 'Enter a valid 10-digit number starting with 6, 7, 8 or 9')}
                                 onInput={e => (e.target as HTMLInputElement).setCustomValidity('')}
                                 className="w-full px-4 py-2.5 bg-black/5 border-none rounded-xl text-sm focus:ring-1 focus:ring-brand-orange outline-none transition-shadow"
                             />
@@ -307,8 +312,8 @@ const VideoMessengerInline = ({
                                     onChange={e => setFormData({...formData, budget: e.target.value})}
                                     className="w-full px-4 py-2.5 bg-black/5 border-none rounded-xl text-sm appearance-none focus:ring-1 focus:ring-brand-orange outline-none cursor-pointer pr-10"
                                 >
-                                    <option value="" disabled>Project Budget</option>
-                                    {(isSEOPage ? seoBudgets : budgets).map(b => (
+                                    <option value="" disabled>Project Budget {isUSPage ? '(USD)' : ''}</option>
+                                    {currentBudgets.map(b => (
                                         <option key={b} value={b}>{b}</option>
                                     ))}
                                 </select>

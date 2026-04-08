@@ -31,13 +31,15 @@ const DecryptedText: React.FC<DecryptedTextProps> = ({
         if (!isStarted) return;
 
         const interval = setInterval(() => {
+            iterationRef.current += 1;
+            const resolved = iterationRef.current >= maxIterations;
+
             setDisplayText(text.split("").map((char, index) => {
-                if (char === " " || iterationRef.current > maxIterations) return text[index];
+                if (char === " " || resolved) return text[index];
                 return letters[Math.floor(Math.random() * letters.length)];
             }).join(""));
 
-            iterationRef.current += 1;
-            if (iterationRef.current > maxIterations) clearInterval(interval);
+            if (resolved) clearInterval(interval);
         }, speed);
 
         return () => clearInterval(interval);

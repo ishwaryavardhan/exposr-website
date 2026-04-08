@@ -23,7 +23,14 @@ export async function GET() {
         '/media-production',
         '/influencer-marketing-for-brands',
         '/clients',
-        '/work'
+        '/work',
+        '/digital-marketing-agency-chennai',
+        '/digital-marketing-agency-bangalore',
+        '/chennai/digital-marketing-agency',
+        '/bangalore/digital-marketing-agency',
+        '/chennai/media-production-agency',
+        '/bangalore/media-production-agency',
+        '/us/growth-consulting-firm'
     ];
 
     // Blog Posts

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const slug = params.slug.replace(/-/g, ' ');
-    const capitalizedWord = slug.replace(/\b\w/g, c => c.toUpperCase());
-    const currentUrl = `https://www.xposr.com/blog/${params.slug}`;
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const decodedSlug = slug.replace(/-/g, ' ');
+    const capitalizedWord = decodedSlug.replace(/\b\w/g, c => c.toUpperCase());
+    const currentUrl = `https://www.xposr.com/blog/${slug}`;
 
     return {
         title: `${capitalizedWord} | eXposr Blog`,
@@ -19,10 +20,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
 }
 
-export default function Layout({ children, params }: { children: React.ReactNode, params: { slug: string } }) {
-    const slug = params.slug.replace(/-/g, ' ');
-    const capitalizedWord = slug.replace(/\b\w/g, c => c.toUpperCase());
-    const currentUrl = `https://www.xposr.com/blog/${params.slug}`;
+export default async function Layout({ children, params }: { children: React.ReactNode, params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const decodedSlug = slug.replace(/-/g, ' ');
+    const capitalizedWord = decodedSlug.replace(/\b\w/g, c => c.toUpperCase());
+    const currentUrl = `https://www.xposr.com/blog/${slug}`;
+
 
     const structuredData = [
         {

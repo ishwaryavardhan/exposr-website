@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-    const id = params.id.replace(/-/g, ' ');
-    const capitalizedWord = id.replace(/\b\w/g, c => c.toUpperCase());
-    const currentUrl = `https://www.xposr.com/services/${params.id}`;
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const { id } = await params;
+    const decodedId = id.replace(/-/g, ' ');
+    const capitalizedWord = decodedId.replace(/\b\w/g, c => c.toUpperCase());
+    const currentUrl = `https://www.xposr.com/services/${id}`;
 
     return {
         title: `${capitalizedWord} Services | eXposr India`,
@@ -19,10 +20,12 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     };
 }
 
-export default function Layout({ children, params }: { children: React.ReactNode, params: { id: string } }) {
-    const id = params.id.replace(/-/g, ' ');
-    const capitalizedWord = id.replace(/\b\w/g, c => c.toUpperCase());
-    const currentUrl = `https://www.xposr.com/services/${params.id}`;
+export default async function Layout({ children, params }: { children: React.ReactNode, params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const decodedId = id.replace(/-/g, ' ');
+    const capitalizedWord = decodedId.replace(/\b\w/g, c => c.toUpperCase());
+    const currentUrl = `https://www.xposr.com/services/${id}`;
+
 
     const structuredData = [
         {
